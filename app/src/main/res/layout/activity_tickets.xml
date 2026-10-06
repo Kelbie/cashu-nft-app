@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                style="@style/Widget.App.IconButton"
+                android:contentDescription="@string/common_back"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Text.App.Display.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="An Evening" />
+
+        </LinearLayout>
+
+        <!-- How it stands, in a line: how many, how many have gone, whether it is selling. -->
+        <TextView
+            android:id="@+id/status"
+            style="@style/Text.App.Mono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="50 NFTs · 12 sold · on sale" />
+
+        <!-- The page that reads the key of a collection this phone made. -->
+        <FrameLayout
+            android:id="@+id/pages"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:importantForAccessibility="noHideDescendants" />
+
+        <EditText
+            android:id="@+id/search"
+            style="@style/Widget.App.Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/tickets_search"
+            android:imeOptions="actionSearch"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <!-- The types of a collection's NFTs, as its maker named them: one tab for each. -->
+        <HorizontalScrollView
+            android:id="@+id/types_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/types"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+        </HorizontalScrollView>
+
+        <!-- How the collection stands, in numbers. Each is also a way to see only those. -->
+        <LinearLayout
+            android:id="@+id/counts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" />
+
+
+    </LinearLayout>
+
+    <cash.nonfungible.app.Halftone
+        app:over="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/row_ticket" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/empty"
+            style="@style/Text.App.Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_empty"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="48dp"
+            android:visibility="gone"
+            tools:text="@string/tickets_none" />
+
+    </cash.nonfungible.app.Halftone>
+
+    <!-- What can be done with the collection: the rest behind the dots, the two that matter beside them. -->
+    <TextView
+        android:id="@+id/note"
+        style="@style/Text.App.Muted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/more"
+            style="@style/Widget.App.IconButton"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:contentDescription="@string/collection_more"
+            android:src="@drawable/ic_more" />
+
+        <TextView
+            android:id="@+id/second"
+            style="@style/Widget.App.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:paddingStart="12dp"
+            android:paddingEnd="16dp"
+            tools:text="@string/door_hand" />
+
+        <TextView
+            android:id="@+id/first"
+            style="@style/Widget.App.Button.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:paddingStart="12dp"
+            android:paddingEnd="16dp"
+            tools:text="@string/collection_open_door" />
+
+    </LinearLayout>
+
+</LinearLayout>
