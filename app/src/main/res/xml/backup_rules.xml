@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<full-backup-content>
-    <!-- The encrypted recovery envelope is the only Numo data eligible for cloud backup. -->
-    <include
-        domain="file"
-        path="numo_recovery_backup.json"
-        requireFlags="clientSideEncryption" />
-</full-backup-content>
