@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- One NFT to the guest at the door, a step at a time: sold or sent, then its code, then let in. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="28dp">
+
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_grabber" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/Text.App.Display.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="General admission · 13 of 100" />
+
+    <TextView
+        android:id="@+id/help"
+        style="@style/Text.App.Sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/hand_ways" />
+
+    <!-- The code a guest scans; dots while it is made; a tick when it is theirs. -->
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_qr"
+        android:paddingStart="14dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="18dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:contentDescription="@string/hand_code"
+            android:scaleType="fitCenter" />
+
+        <cash.nonfungible.app.Dots
+            android:id="@+id/dots"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:importantForAccessibility="no" />
+
+        <LinearLayout
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <cash.nonfungible.app.Tick
+                android:id="@+id/tick"
+                android:layout_width="130dp"
+                android:layout_height="130dp" />
+
+            <TextView
+                android:id="@+id/said"
+                style="@style/Text.App.Display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                tools:text="Sold for 21 sats.\nAda owns it now." />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/wait"
+            style="@style/Text.App.Strong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:textColor="@color/black"
+            tools:text="@string/hand_making" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/second"
+            style="@style/Widget.App.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/hand_give" />
+
+        <TextView
+            android:id="@+id/first"
+            style="@style/Widget.App.Button.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            tools:text="Sell for 21 sats"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</LinearLayout>
