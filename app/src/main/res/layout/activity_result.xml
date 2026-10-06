@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- An NFT that was opened to be looked at has no answer over it: the way back, and nothing else. -->
+        <LinearLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/back"
+                style="@style/Widget.App.IconButton"
+                android:contentDescription="@string/common_back"
+                android:src="@drawable/ic_back" />
+
+        </LinearLayout>
+
+        <!-- The answer, in the one colour that means it, readable from across a doorway. -->
+        <LinearLayout
+            android:id="@+id/band"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            tools:background="@color/lime">
+
+            <TextView
+                android:id="@+id/verdict"
+                style="@style/Text.App.Display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="44sp"
+                tools:text="@string/tickets_admitted"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/at"
+                style="@style/Text.App.Mono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="13sp"
+                tools:text="main entrance · 14:02"
+                tools:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/rule"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black" />
+
+        <!-- The NFT, and under it what is known about it. Let go between the two and the page
+             goes to one of them. What there is to do stays at the foot, whichever is in view. -->
+        <cash.nonfungible.app.Snapping
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <LinearLayout
+                    android:id="@+id/focus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:id="@+id/headline"
+                        style="@style/Text.App.Display.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textSize="30sp"
+                        tools:text="Welcome, Kelbie" />
+
+                    <TextView
+                        android:id="@+id/subline"
+                        style="@style/Text.App"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/inter_600"
+                        android:maxLines="3"
+                        android:textSize="16sp"
+                        tools:text="bitcoin++ Seoul · General admission · 11 of 26" />
+
+                    <cash.nonfungible.app.Tiles
+                        android:id="@+id/tiles"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="16dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/about"
+                    layout="@layout/part_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp" />
+
+            </LinearLayout>
+
+        </cash.nonfungible.app.Snapping>
+
+        <LinearLayout
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/details"
+                    style="@style/Widget.App.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/result_details" />
+
+                <TextView
+                    android:id="@+id/other"
+                    style="@style/Widget.App.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    tools:text="@string/result_undo"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/next"
+                style="@style/Widget.App.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/result_next" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <cash.nonfungible.app.Confetti
+        android:id="@+id/confetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no" />
+
+</FrameLayout>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                style="@style/Widget.App.IconButton"
+                android:contentDescription="@string/door_close"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                style="@style/Text.App.Display"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="@string/door_title"
+                android:textSize="21sp" />
+
+            <ImageButton
+                android:id="@+id/settings"
+                style="@style/Widget.App.IconButton"
+                android:contentDescription="@string/door_settings"
+                android:src="@drawable/ic_settings" />
+
+        </LinearLayout>
+
+        <!-- The collection on the door, with the picture its page shows. Changing it is not
+             something to do by a slip of the thumb: it is in Settings. -->
+        <LinearLayout
+            android:id="@+id/who"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_avatar"
+                android:clipToOutline="true"
+                android:importantForAccessibility="no"
+                android:padding="2dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/collection"
+                    style="@style/Text.App.Display.Title"
+                    android:textSize="28sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    tools:text="An Evening" />
+
+                <TextView
+                    android:id="@+id/door"
+                    style="@style/Text.App.Mono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="13sp"
+                    tools:text="main entrance" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- The code, on white whatever the theme. Its text is dark for the same reason. -->
+        <LinearLayout
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_qr"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="16dp">
+
+            <!-- Where a guest holds their phone: the main way in. -->
+            <FrameLayout
+                android:id="@+id/tap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <cash.nonfungible.app.Dots
+                    android:id="@+id/dots"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    style="@style/Text.App.Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingHorizontal="24dp"
+                    android:text="@string/door_tap"
+                    android:textColor="@color/black"
+                    android:textSize="38sp" />
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/qr"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/door_request"
+                android:scaleType="fitCenter" />
+
+            <!-- An answer has come: which NFT it shows, and who is being asked about it. -->
+            <LinearLayout
+                android:id="@+id/checking"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/checking_picture"
+                    android:layout_width="168dp"
+                    android:layout_height="168dp"
+                    android:background="@drawable/bg_media"
+                    android:importantForAccessibility="no"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/checking_name"
+                    style="@style/Text.App.Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:text="bitcoin++ Seoul" />
+
+                <TextView
+                    android:id="@+id/checking_note"
+                    style="@style/Text.App.Strong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:textColor="#5D5A52"
+                    tools:text="Asking nonfungible.cash…" />
+
+                <cash.nonfungible.app.Dots
+                    android:id="@+id/checking_dots"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:importantForAccessibility="no" />
+
+            </LinearLayout>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/countdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:importantForAccessibility="no"
+                android:max="1000"
+                app:indicatorColor="@color/black"
+                app:indicatorTrackGapSize="0dp"
+                app:trackColor="#E4E0D6"
+                app:trackStopIndicatorSize="0dp"
+                app:trackCornerRadius="4dp"
+                app:trackThickness="8dp" />
+
+            <TextView
+                android:id="@+id/status"
+                style="@style/Text.App.Strong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                tools:text="@string/door_waiting" />
+
+            <TextView
+                android:id="@+id/next"
+                style="@style/Text.App.Mono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:importantForAccessibility="no"
+                android:textColor="#5D5A52"
+                tools:text="New code in 18 s" />
+
+            <!-- The three ways in, for the doorkeeper to choose between: a phone held to this
+                 one, a code for a guest to scan, and this phone's camera for a code a guest shows. -->
+            <LinearLayout
+                android:id="@+id/ways"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/way_tap"
+                    style="@style/Widget.App.Choice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_tap"
+                    android:text="@string/door_way_tap" />
+
+                <TextView
+                    android:id="@+id/way_code"
+                    style="@style/Widget.App.Choice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_code"
+                    android:text="@string/door_way_code" />
+
+                <TextView
+                    android:id="@+id/way_scan"
+                    style="@style/Widget.App.Choice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_camera"
+                    android:text="@string/door_way_scan" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/below"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tickets"
+                style="@style/Widget.App.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="12dp">
+
+                <LinearLayout
+                    android:id="@+id/recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/Text.App.Strong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:text="12 of 100 in" />
+
+            </LinearLayout>
+
+            <!-- A collection this phone made can sell or send one to whoever is at the door. -->
+            <TextView
+                android:id="@+id/hand"
+                style="@style/Widget.App.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/door_hand"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
