@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- One kind of NFT: what it is called and how many to make. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_row"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="12dp"
+    android:paddingEnd="8dp"
+    android:paddingVertical="6dp">
+
+    <EditText
+        android:id="@+id/label"
+        style="@style/Text.App.Display"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@null"
+        android:hint="@string/make_kind"
+        android:importantForAutofill="no"
+        android:inputType="textCapSentences"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:minHeight="44dp"
+        android:textSize="17sp"
+        tools:text="General admission" />
+
+    <TextView
+        android:id="@+id/fewer"
+        style="@style/Widget.App.Step"
+        android:contentDescription="@string/make_fewer"
+        android:text="−" />
+
+    <EditText
+        android:id="@+id/count"
+        style="@style/Text.App.Display"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3"
+        android:minHeight="44dp"
+        android:selectAllOnFocus="true"
+        android:textSize="19sp"
+        tools:text="12" />
+
+    <TextView
+        android:id="@+id/more"
+        style="@style/Widget.App.Step"
+        android:contentDescription="@string/make_more"
+        android:text="+" />
+
+</LinearLayout>
