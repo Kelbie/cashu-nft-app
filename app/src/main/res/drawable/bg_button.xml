@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pressed, the shadow goes and the whole button moves onto where it was (animator/press), as a button on the site does. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"><layer-list><item android:right="4dp" android:bottom="4dp"><shape><solid android:color="@color/bg" /><stroke android:width="1.5dp" android:color="@color/faint" /><corners android:radius="999dp" /></shape></item></layer-list></item>
+    <item android:state_pressed="true"><layer-list><item android:right="4dp" android:bottom="4dp"><shape><solid android:color="@color/paper" /><stroke android:width="2dp" android:color="@color/ink" /><corners android:radius="999dp" /></shape></item></layer-list></item>
+    <item><layer-list>
+        <item android:left="4dp" android:top="4dp"><shape><solid android:color="@color/ink" /><corners android:radius="999dp" /></shape></item>
+        <item android:right="4dp" android:bottom="4dp"><shape><solid android:color="@color/paper" /><stroke android:width="2dp" android:color="@color/ink" /><corners android:radius="999dp" /></shape></item>
+    </layer-list></item>
+</selector>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One of a few ways, on the door's white panel: the chosen one is lime, one that cannot be had is grey. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"><shape><solid android:color="@color/white" /><stroke android:width="2dp" android:color="#CFC9BA" /><corners android:radius="16dp" /></shape></item>
+    <item android:state_selected="true"><shape><solid android:color="@color/lime" /><stroke android:width="2dp" android:color="@color/black" /><corners android:radius="16dp" /></shape></item>
+    <item android:state_pressed="true"><shape><solid android:color="#E9E5DA" /><stroke android:width="2dp" android:color="@color/black" /><corners android:radius="16dp" /></shape></item>
+    <item><shape><solid android:color="@color/white" /><stroke android:width="2dp" android:color="@color/black" /><corners android:radius="16dp" /></shape></item>
+</selector>

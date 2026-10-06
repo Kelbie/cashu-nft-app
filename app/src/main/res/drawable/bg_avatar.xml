@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- A collection's picture, framed as the site frames one in a list: a square with soft corners and an ink edge. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/surface" />
+    <stroke
+        android:width="2dp"
+        android:color="@color/ink" />
+    <corners android:radius="12dp" />
+</shape>

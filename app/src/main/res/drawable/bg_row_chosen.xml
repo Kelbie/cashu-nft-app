@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The one of a few rows that is chosen: lime, as a chosen pill is. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true"><shape><solid android:color="@color/lime" /><stroke android:width="2dp" android:color="@color/black" /><corners android:radius="14dp" /></shape></item>
+    <item android:state_pressed="true"><shape><solid android:color="@color/surface" /><stroke android:width="2dp" android:color="@color/ink" /><corners android:radius="14dp" /></shape></item>
+    <item><shape><solid android:color="@color/paper" /><stroke android:width="2dp" android:color="@color/ink" /><corners android:radius="14dp" /></shape></item>
+</selector>
