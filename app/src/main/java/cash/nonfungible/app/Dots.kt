@@ -199,6 +199,16 @@ class Halftone @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         layoutParams = placed
         scrolls.setPadding(scrolls.paddingLeft, scrolls.paddingTop + over.toInt(), scrolls.paddingRight, scrolls.paddingBottom)
         scrolls.clipToPadding = false
+        // Whatever else is in here, what a list says when it is empty for one, starts where
+        // the list does: left at the top it would be under what this reaches up beneath.
+        for (other in children) {
+            var holds: View? = scrolls
+            while (holds != null && holds !== other) holds = holds.parent as? View
+            if (holds === other) continue
+            val place = other.layoutParams as? MarginLayoutParams ?: continue
+            place.topMargin += over.toInt()
+            other.layoutParams = place
+        }
         val around = parent as? ViewGroup ?: return
         for (before in around.children.takeWhile { it !== this }) before.translationZ = density
     }
