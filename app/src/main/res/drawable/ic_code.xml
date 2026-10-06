@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A code to scan: its three corners and a little of its middle. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp" android:height="28dp" android:viewportWidth="24" android:viewportHeight="24">
+    <path android:pathData="M4,4h6v6h-6z" android:strokeColor="@color/black" android:strokeWidth="2" android:strokeLineJoin="round" />
+    <path android:pathData="M14,4h6v6h-6z" android:strokeColor="@color/black" android:strokeWidth="2" android:strokeLineJoin="round" />
+    <path android:pathData="M4,14h6v6h-6z" android:strokeColor="@color/black" android:strokeWidth="2" android:strokeLineJoin="round" />
+    <path android:pathData="M13.2,13.2h3v3h-3zM17.8,17.8h3v3h-3zM18.2,13.2h2.6v2.6h-2.6zM13.2,18.2h2.6v2.6h-2.6z" android:fillColor="@color/black" />
+</vector>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The site's mark: a lime tile with an orange dot. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp" android:height="30dp" android:viewportWidth="30" android:viewportHeight="30">
+    <path android:fillColor="@color/ink" android:pathData="M10,3h12a8,8 0,0 1,8 8v12a8,8 0,0 1,-8 8h-12a8,8 0,0 1,-8 -8v-12a8,8 0,0 1,8 -8z" />
+    <path android:fillColor="@color/lime" android:strokeColor="@color/ink" android:strokeWidth="2" android:pathData="M9,1h10a8,8 0,0 1,8 8v10a8,8 0,0 1,-8 8h-10a8,8 0,0 1,-8 -8v-10a8,8 0,0 1,8 -8z" />
+    <path android:fillColor="@color/orange" android:strokeColor="@color/black" android:strokeWidth="2" android:pathData="M14,14m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+</vector>
