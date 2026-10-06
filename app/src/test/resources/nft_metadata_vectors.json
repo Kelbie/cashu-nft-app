@@ -1,0 +1,2885 @@
+[
+ {
+  "case": "the least document",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the format's own example",
+  "text": "{\"attributes\":[{\"trait_type\":\"Element\",\"type\":\"text\",\"value\":\"Fire\"},{\"max_value\":3,\"trait_type\":\"Stage\",\"type\":\"number\",\"value\":2},{\"trait_type\":\"Shiny\",\"type\":\"boolean\",\"value\":false},{\"dp\":1,\"trait_type\":\"Weight\",\"type\":\"number\",\"unit\":\"kg\",\"value\":125}],\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://nonfungible.cash/p/abababababababababababababababababababababababababababababababab\"},\"description\":\"The second of three.\",\"edition\":{\"name\":\"First hatching\",\"number\":5,\"of\":21},\"kind\":\"Embit (Fire)\",\"name\":\"Embit, stage two\",\"schema\":\"nft-metadata/2\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "Embit, stage two",
+   "description": "The second of three.",
+   "kind": "Embit (Fire)",
+   "edition": {
+    "number": 5,
+    "of": 21,
+    "name": "First hatching"
+   },
+   "attributes": [
+    {
+     "trait_type": "Element",
+     "value": "Fire",
+     "type": "text"
+    },
+    {
+     "trait_type": "Stage",
+     "value": 2,
+     "type": "number",
+     "max_value": 3
+    },
+    {
+     "trait_type": "Shiny",
+     "value": false,
+     "type": "boolean"
+    },
+    {
+     "trait_type": "Weight",
+     "value": 125,
+     "type": "number",
+     "dp": 1,
+     "unit": "kg"
+    }
+   ],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://nonfungible.cash/p/abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket with every member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"bitcoin++ Seoul\",\"description\":\"One admission.\\nDoors at seven.\",\"kind\":\"General admission\",\"edition\":{\"number\":11,\"of\":26,\"name\":\"privacy edition\"},\"attributes\":[{\"trait_type\":\"Guest\",\"value\":\"Ada\"}],\"must\":[\"ticket\"],\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://nonfungible.cash/p/abababababababababababababababababababababababababababababababab\",\"name\":\"bitcoin++\"},\"links\":[{\"rel\":\"external\",\"url\":\"https://btcpp.dev/\"}],\"locale\":\"en\",\"style\":{\"palette\":{\"ground\":\"#eee8dd\",\"panel\":\"#e3dbcf\",\"ink\":\"#262323\",\"accent\":\"#b57742\"},\"template\":\"ticket-sleeve/1\",\"params\":{\"corner_radius\":0,\"notch_radius\":48,\"serration_depth\":20,\"serration_pitch\":64}},\"ext\":{\"ticket\":{\"starts\":1790000000,\"ends\":1790020000,\"venue\":\"Seoul\"}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "bitcoin++ Seoul",
+   "description": "One admission.\nDoors at seven.",
+   "kind": "General admission",
+   "edition": {
+    "number": 11,
+    "of": 26,
+    "name": "privacy edition"
+   },
+   "attributes": [
+    {
+     "trait_type": "Guest",
+     "value": "Ada",
+     "type": "text"
+    }
+   ],
+   "must": [
+    "ticket"
+   ],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://nonfungible.cash/p/abababababababababababababababababababababababababababababababab",
+    "name": "bitcoin++"
+   },
+   "links": [
+    {
+     "rel": "external",
+     "url": "https://btcpp.dev/"
+    }
+   ],
+   "locale": "en",
+   "style": {
+    "palette": {
+     "ground": "#eee8dd",
+     "panel": "#e3dbcf",
+     "ink": "#262323",
+     "accent": "#b57742"
+    },
+    "template": "ticket-sleeve/1",
+    "params": {
+     "corner_radius": 0,
+     "notch_radius": 48,
+     "serration_depth": 20,
+     "serration_pitch": 64
+    }
+   },
+   "ext": {
+    "ticket": {
+     "starts": 1790000000,
+     "ends": 1790020000,
+     "venue": "Seoul"
+    }
+   }
+  },
+  "sleeve": {
+   "corner_radius": 0,
+   "notch_radius": 48,
+   "serration_depth": 20,
+   "serration_pitch": 64
+  }
+ },
+ {
+  "case": "members in any order with spaces between tokens",
+  "text": " { \"name\" : \"N\" , \"attributes\" : [ { \"value\" : 1 , \"trait_type\" : \"T\" } ] , \"schema\" : \"nft-metadata/2\" } ",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 1,
+     "type": "number"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a version 1 document",
+  "text": "{\"schema\":\"nft-metadata/1\",\"name\":\"N\"}",
+  "metadata": null
+ },
+ {
+  "case": "no schema",
+  "text": "{\"name\":\"N\"}",
+  "metadata": null
+ },
+ {
+  "case": "a schema that is not a string",
+  "text": "{\"schema\":2,\"name\":\"N\"}",
+  "metadata": null
+ },
+ {
+  "case": "no name",
+  "text": "{\"schema\":\"nft-metadata/2\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name that is a number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":5}",
+  "metadata": null
+ },
+ {
+  "case": "a name that is null",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":null}",
+  "metadata": null
+ },
+ {
+  "case": "empty text",
+  "text": "",
+  "metadata": null
+ },
+ {
+  "case": "only a space",
+  "text": " ",
+  "metadata": null
+ },
+ {
+  "case": "an array at the top",
+  "text": "[{\"schema\":\"nft-metadata/2\",\"name\":\"N\"}]",
+  "metadata": null
+ },
+ {
+  "case": "a string at the top",
+  "text": "\"nft-metadata/2\"",
+  "metadata": null
+ },
+ {
+  "case": "something after the document",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\"}{}",
+  "metadata": null
+ },
+ {
+  "case": "a comma after the last member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",}",
+  "metadata": null
+ },
+ {
+  "case": "a comment",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\"}//x",
+  "metadata": null
+ },
+ {
+  "case": "single quotes",
+  "text": "{'schema':'nft-metadata/2','name':'N'}",
+  "metadata": null
+ },
+ {
+  "case": "NaN in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":NaN}",
+  "metadata": null
+ },
+ {
+  "case": "Infinity in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-Infinity}",
+  "metadata": null
+ },
+ {
+  "case": "unknown members are ignored whatever they hold",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":{\"y\":[1,\"two\",null,true,{}]},\"royalties\":{\"bps\":250}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the names kept for later are ignored",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"creators\":[\"a\"],\"proof\":\"00\",\"parent\":{},\"i18n\":{\"de\":{\"name\":\"X\"}},\"valid\":false,\"rights\":7}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a version 1 ticket member is unknown",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ticket\":{\"collection\":\"https://mint.example/p/abababababababababababababababababababababababababababababababab\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the number 1.0 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":1.0}",
+  "metadata": null
+ },
+ {
+  "case": "the number 1e3 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":1e3}",
+  "metadata": null
+ },
+ {
+  "case": "the number 1E3 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":1E3}",
+  "metadata": null
+ },
+ {
+  "case": "the number -0 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-0}",
+  "metadata": null
+ },
+ {
+  "case": "the number -0.0 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-0.0}",
+  "metadata": null
+ },
+ {
+  "case": "the number 0 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":0}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the number -1 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-1}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the number 01 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":01}",
+  "metadata": null
+ },
+ {
+  "case": "the number +1 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":+1}",
+  "metadata": null
+ },
+ {
+  "case": "the number 1. in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":1.}",
+  "metadata": null
+ },
+ {
+  "case": "the number .5 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":.5}",
+  "metadata": null
+ },
+ {
+  "case": "the number 9007199254740991 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":9007199254740991}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the number -9007199254740991 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-9007199254740991}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the number 9007199254740992 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":9007199254740992}",
+  "metadata": null
+ },
+ {
+  "case": "the number -9007199254740992 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":-9007199254740992}",
+  "metadata": null
+ },
+ {
+  "case": "the number 1e400 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":1e400}",
+  "metadata": null
+ },
+ {
+  "case": "the number 123456789012345678901234567890 in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":123456789012345678901234567890}",
+  "metadata": null
+ },
+ {
+  "case": "the number 1.0 as a value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1.0}]}",
+  "metadata": null
+ },
+ {
+  "case": "a float deep inside an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":{\"y\":[{\"z\":0.5}]}}",
+  "metadata": null
+ },
+ {
+  "case": "a float inside style params",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"params\":{\"a\":1.5}}}",
+  "metadata": null
+ },
+ {
+  "case": "a string that looks like a float",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"1.5e3\",\"y\":\"-0\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a number-like run after an escaped quote in a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"\\\" 1.5e3 [[ \\\"\",\"y\":\"a\\\\\\\" 2.5\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a float after a string that ends in an escaped backslash",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"\\\\\",\"y\":1.5}",
+  "metadata": null
+ },
+ {
+  "case": "32 deep in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "33 deep in an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}",
+  "metadata": null
+ },
+ {
+  "case": "33 deep in objects",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":{\"a\":1}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}",
+  "metadata": null
+ },
+ {
+  "case": "32 deep in style params",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"params\":{\"a\":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "params": {
+     "a": [
+      [
+       [
+        [
+         [
+          [
+           [
+            [
+             [
+              [
+               [
+                [
+                 [
+                  [
+                   [
+                    [
+                     [
+                      [
+                       [
+                        [
+                         [
+                          [
+                           [
+                            [
+                             [
+                              [
+                               [
+                                [
+                                 []
+                                ]
+                               ]
+                              ]
+                             ]
+                            ]
+                           ]
+                          ]
+                         ]
+                        ]
+                       ]
+                      ]
+                     ]
+                    ]
+                   ]
+                  ]
+                 ]
+                ]
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ]
+     ]
+    }
+   }
+  }
+ },
+ {
+  "case": "33 deep in style params",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"params\":{\"a\":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}}}",
+  "metadata": null
+ },
+ {
+  "case": "brackets inside a string are not depth",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{[{\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "brackets after an escaped quote inside a string are not depth",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"\\\"[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "33 deep after a string that ends in an escaped backslash",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":\"\\\\\",\"y\":[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}",
+  "metadata": null
+ },
+ {
+  "case": "a name given twice: the last counts",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"First\",\"name\":\"Last\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "Last",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a bad name then a good one",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":5,\"name\":\"Last\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "Last",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a good name then a bad one",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"First\",\"name\":\" \"}",
+  "metadata": null
+ },
+ {
+  "case": "a key repeated through an escape",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"First\",\"n\\u0061me\":\"Last\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "Last",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a schema given twice: the last counts",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"schema\":\"nft-metadata/1\"}",
+  "metadata": null
+ },
+ {
+  "case": "a value given twice in an attribute",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"a\",\"value\":2}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 2,
+     "type": "number"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a collection given twice, the last one bad",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"collection\":{\"id\":\"zz\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a tab between tokens",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\t\"x\":1}",
+  "metadata": null
+ },
+ {
+  "case": "a newline between tokens",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\n\"x\":1}",
+  "metadata": null
+ },
+ {
+  "case": "a raw byte above ASCII in a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"caf\u00e9\"}",
+  "metadata": null
+ },
+ {
+  "case": "a raw DEL byte in a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\u007fb\"}",
+  "metadata": null
+ },
+ {
+  "case": "the same letter written as an escape",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"caf\\u00e9\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "caf\u00e9",
+   "attributes": []
+  }
+ },
+ {
+  "case": "16384 bytes",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"pad\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "16385 bytes",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"pad\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}",
+  "metadata": null
+ },
+ {
+  "case": "null as description",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":null}",
+  "metadata": null
+ },
+ {
+  "case": "null as kind",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":null}",
+  "metadata": null
+ },
+ {
+  "case": "null as edition",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":null}",
+  "metadata": null
+ },
+ {
+  "case": "null as attributes",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":null}",
+  "metadata": null
+ },
+ {
+  "case": "null as must",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":null}",
+  "metadata": null
+ },
+ {
+  "case": "null as collection",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":null}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as links",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":null}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as locale",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":null}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as style",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":null}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as ext",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ext\":null}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null inside an unknown member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"x\":null,\"y\":{\"z\":[null]}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as an attribute's type",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"type\":null}]}",
+  "metadata": null
+ },
+ {
+  "case": "null as an attribute's max_value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"max_value\":null}]}",
+  "metadata": null
+ },
+ {
+  "case": "null as an attribute's value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":null}]}",
+  "metadata": null
+ },
+ {
+  "case": "null as an edition's name",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"name\":null}}",
+  "metadata": null
+ },
+ {
+  "case": "null as a collection's url",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":null}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as a link's title",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example/\",\"title\":null}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as a style's palette",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"palette\":null,\"template\":\"ticket-sleeve/1\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "null as a ticket's venue",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{\"venue\":null}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a name of 80 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a name of 81 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn\"}",
+  "metadata": null
+ },
+ {
+  "case": "an empty name",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"\"}",
+  "metadata": null
+ },
+ {
+  "case": "a description of 1000 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "description": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a description of 1001 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\"ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\"}",
+  "metadata": null
+ },
+ {
+  "case": "a kind of 40 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "kind": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a kind of 41 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":\"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk\"}",
+  "metadata": null
+ },
+ {
+  "case": "a kind that is a number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":1}",
+  "metadata": null
+ },
+ {
+  "case": "an empty kind",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":\"\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with a control character",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u0001b\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with an escaped tab",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\tb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with DEL",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u007fb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with a lone high surrogate",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\ud83cb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with a lone low surrogate",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\udf9fb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with surrogates the wrong way round",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"\\udf9f\\ud83c\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with only spaces",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"   \"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with a newline",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\nb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+061C",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u061cb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+200E",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u200eb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+200F",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u200fb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+202A",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u202ab\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+202B",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u202bb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+202C",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u202cb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+202D",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u202db\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+202E",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u202eb\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+2066",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u2066b\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+2067",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u2067b\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+2068",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u2068b\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name with the bidirectional control U+2069",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u2069b\"}",
+  "metadata": null
+ },
+ {
+  "case": "a name of only a no-break space",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"\\u00a0\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "\u00a0",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a name with a quote and a backslash",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\\"b\\\\c\\/d\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "a\"b\\c/d",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a name with a zero-width joiner and a C1 control",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"a\\u200d\\u0085b\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "a\u200d\u0085b",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a description with newlines",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\"One.\\n\\nTwo.\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "description": "One.\n\nTwo.",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a description of only newlines and spaces",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\" \\n \\n\"}",
+  "metadata": null
+ },
+ {
+  "case": "a description with a carriage return",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\"One.\\r\\nTwo.\"}",
+  "metadata": null
+ },
+ {
+  "case": "a description with a bidirectional control",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"description\":\"a\\u202eb\"}",
+  "metadata": null
+ },
+ {
+  "case": "each type inferred",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"A\",\"value\":\"x\"},{\"trait_type\":\"B\",\"value\":-3},{\"trait_type\":\"C\",\"value\":true},{\"trait_type\":\"D\",\"value\":false}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "A",
+     "value": "x",
+     "type": "text"
+    },
+    {
+     "trait_type": "B",
+     "value": -3,
+     "type": "number"
+    },
+    {
+     "trait_type": "C",
+     "value": true,
+     "type": "boolean"
+    },
+    {
+     "trait_type": "D",
+     "value": false,
+     "type": "boolean"
+    }
+   ]
+  }
+ },
+ {
+  "case": "each type stated",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"A\",\"value\":\"x\",\"type\":\"text\"},{\"trait_type\":\"B\",\"value\":0,\"type\":\"number\"},{\"trait_type\":\"C\",\"value\":false,\"type\":\"boolean\"},{\"trait_type\":\"D\",\"value\":1790000000,\"type\":\"date\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "A",
+     "value": "x",
+     "type": "text"
+    },
+    {
+     "trait_type": "B",
+     "value": 0,
+     "type": "number"
+    },
+    {
+     "trait_type": "C",
+     "value": false,
+     "type": "boolean"
+    },
+    {
+     "trait_type": "D",
+     "value": 1790000000,
+     "type": "date"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a date before 1970",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"D\",\"value\":-86400,\"type\":\"date\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "D",
+     "value": -86400,
+     "type": "date"
+    }
+   ]
+  }
+ },
+ {
+  "case": "type number beside the value '7'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"7\",\"type\":\"number\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type text beside the value 7",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":7,\"type\":\"text\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type boolean beside the value 1",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"type\":\"boolean\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type boolean beside the value 'true'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"true\",\"type\":\"boolean\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type date beside the value '2026-01-01'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"2026-01-01\",\"type\":\"date\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type number beside the value true",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":true,\"type\":\"number\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type date beside the value false",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":false,\"type\":\"date\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "type text beside the value true",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":true,\"type\":\"text\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a type this reader does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"A\",\"value\":\"x\",\"type\":\"colour\"},{\"trait_type\":\"B\",\"value\":5,\"type\":\"rating\",\"max_value\":10},{\"trait_type\":\"C\",\"value\":true,\"type\":\"x-1\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "A",
+     "value": "x",
+     "type": "text"
+    },
+    {
+     "trait_type": "B",
+     "value": 5,
+     "type": "number",
+     "max_value": 10
+    },
+    {
+     "trait_type": "C",
+     "value": true,
+     "type": "boolean"
+    }
+   ]
+  }
+ },
+ {
+  "case": "the malformed type 'Text'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"Text\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type ''",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type '1st'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"1st\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type 'a_b'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"a_b\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type 'ttttttttttttttttttttttttttttttttt'",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"ttttttttttttttttttttttttttttttttt\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type 5",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":5}]}",
+  "metadata": null
+ },
+ {
+  "case": "the malformed type []",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":[]}]}",
+  "metadata": null
+ },
+ {
+  "case": "a type of 32 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"tttttttttttttttttttttttttttttttt\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": "x",
+     "type": "text"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a number with max_value, dp and unit",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":125,\"max_value\":2000,\"dp\":1,\"unit\":\"kg\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 125,
+     "type": "number",
+     "max_value": 2000,
+     "dp": 1,
+     "unit": "kg"
+    }
+   ]
+  }
+ },
+ {
+  "case": "max_value below the value, and negative",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":5,\"max_value\":3},{\"trait_type\":\"U\",\"value\":-5,\"max_value\":-9}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 5,
+     "type": "number",
+     "max_value": 3
+    },
+    {
+     "trait_type": "U",
+     "value": -5,
+     "type": "number",
+     "max_value": -9
+    }
+   ]
+  }
+ },
+ {
+  "case": "max_value beside a text value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"max_value\":5}]}",
+  "metadata": null
+ },
+ {
+  "case": "max_value beside a boolean",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":true,\"max_value\":5}]}",
+  "metadata": null
+ },
+ {
+  "case": "max_value beside a date",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"type\":\"date\",\"max_value\":5}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp beside a text value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"dp\":0}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp beside a boolean",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":true,\"dp\":0}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp beside a date",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"type\":\"date\",\"dp\":0}]}",
+  "metadata": null
+ },
+ {
+  "case": "unit beside a text value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"unit\":\"kg\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "unit beside a boolean",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":true,\"unit\":\"kg\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "unit beside a date",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"type\":\"date\",\"unit\":\"kg\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "max_value beside a text value of an unknown type",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"x\",\"type\":\"rating\",\"max_value\":5}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp 0 and dp 9",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"dp\":0},{\"trait_type\":\"T\",\"value\":1,\"dp\":9}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 1,
+     "type": "number",
+     "dp": 0
+    },
+    {
+     "trait_type": "T",
+     "value": 1,
+     "type": "number",
+     "dp": 9
+    }
+   ]
+  }
+ },
+ {
+  "case": "dp 10",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"dp\":10}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp -1",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"dp\":-1}]}",
+  "metadata": null
+ },
+ {
+  "case": "dp as a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"dp\":\"2\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "max_value as a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"max_value\":\"2\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a unit of 12 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"unit\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 1,
+     "type": "number",
+     "unit": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a unit of 13 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"unit\":\"uuuuuuuuuuuuu\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "an empty unit",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":1,\"unit\":\"\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a trait_type of 40 and a value of 120 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\",\"value\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f",
+     "value": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f",
+     "type": "text"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a trait_type of 41 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"ttttttttttttttttttttttttttttttttttttttttt\",\"value\":\"x\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a value of 121 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "an empty value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a value of only spaces",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"  \"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a value with a newline",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"a\\nb\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a value that is an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":[\"x\"]}]}",
+  "metadata": null
+ },
+ {
+  "case": "no value",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "no trait_type",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"value\":\"x\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "a trait_type that is a number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":1,\"value\":\"x\"}]}",
+  "metadata": null
+ },
+ {
+  "case": "the largest and least integers as values",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":9007199254740991},{\"trait_type\":\"T\",\"value\":-9007199254740991}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 9007199254740991,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": -9007199254740991,
+     "type": "number"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a repeated trait_type",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"a\"},{\"trait_type\":\"T\",\"value\":\"b\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": "a",
+     "type": "text"
+    },
+    {
+     "trait_type": "T",
+     "value": "b",
+     "type": "text"
+    }
+   ]
+  }
+ },
+ {
+  "case": "unknown members of an attribute are ignored",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":\"a\",\"display_type\":\"x\",\"rarity\":null}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": "a",
+     "type": "text"
+    }
+   ]
+  }
+ },
+ {
+  "case": "32 attributes",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":0},{\"trait_type\":\"T\",\"value\":1},{\"trait_type\":\"T\",\"value\":2},{\"trait_type\":\"T\",\"value\":3},{\"trait_type\":\"T\",\"value\":4},{\"trait_type\":\"T\",\"value\":5},{\"trait_type\":\"T\",\"value\":6},{\"trait_type\":\"T\",\"value\":7},{\"trait_type\":\"T\",\"value\":8},{\"trait_type\":\"T\",\"value\":9},{\"trait_type\":\"T\",\"value\":10},{\"trait_type\":\"T\",\"value\":11},{\"trait_type\":\"T\",\"value\":12},{\"trait_type\":\"T\",\"value\":13},{\"trait_type\":\"T\",\"value\":14},{\"trait_type\":\"T\",\"value\":15},{\"trait_type\":\"T\",\"value\":16},{\"trait_type\":\"T\",\"value\":17},{\"trait_type\":\"T\",\"value\":18},{\"trait_type\":\"T\",\"value\":19},{\"trait_type\":\"T\",\"value\":20},{\"trait_type\":\"T\",\"value\":21},{\"trait_type\":\"T\",\"value\":22},{\"trait_type\":\"T\",\"value\":23},{\"trait_type\":\"T\",\"value\":24},{\"trait_type\":\"T\",\"value\":25},{\"trait_type\":\"T\",\"value\":26},{\"trait_type\":\"T\",\"value\":27},{\"trait_type\":\"T\",\"value\":28},{\"trait_type\":\"T\",\"value\":29},{\"trait_type\":\"T\",\"value\":30},{\"trait_type\":\"T\",\"value\":31}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [
+    {
+     "trait_type": "T",
+     "value": 0,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 1,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 2,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 3,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 4,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 5,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 6,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 7,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 8,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 9,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 10,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 11,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 12,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 13,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 14,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 15,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 16,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 17,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 18,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 19,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 20,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 21,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 22,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 23,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 24,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 25,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 26,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 27,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 28,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 29,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 30,
+     "type": "number"
+    },
+    {
+     "trait_type": "T",
+     "value": 31,
+     "type": "number"
+    }
+   ]
+  }
+ },
+ {
+  "case": "33 attributes",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[{\"trait_type\":\"T\",\"value\":0},{\"trait_type\":\"T\",\"value\":1},{\"trait_type\":\"T\",\"value\":2},{\"trait_type\":\"T\",\"value\":3},{\"trait_type\":\"T\",\"value\":4},{\"trait_type\":\"T\",\"value\":5},{\"trait_type\":\"T\",\"value\":6},{\"trait_type\":\"T\",\"value\":7},{\"trait_type\":\"T\",\"value\":8},{\"trait_type\":\"T\",\"value\":9},{\"trait_type\":\"T\",\"value\":10},{\"trait_type\":\"T\",\"value\":11},{\"trait_type\":\"T\",\"value\":12},{\"trait_type\":\"T\",\"value\":13},{\"trait_type\":\"T\",\"value\":14},{\"trait_type\":\"T\",\"value\":15},{\"trait_type\":\"T\",\"value\":16},{\"trait_type\":\"T\",\"value\":17},{\"trait_type\":\"T\",\"value\":18},{\"trait_type\":\"T\",\"value\":19},{\"trait_type\":\"T\",\"value\":20},{\"trait_type\":\"T\",\"value\":21},{\"trait_type\":\"T\",\"value\":22},{\"trait_type\":\"T\",\"value\":23},{\"trait_type\":\"T\",\"value\":24},{\"trait_type\":\"T\",\"value\":25},{\"trait_type\":\"T\",\"value\":26},{\"trait_type\":\"T\",\"value\":27},{\"trait_type\":\"T\",\"value\":28},{\"trait_type\":\"T\",\"value\":29},{\"trait_type\":\"T\",\"value\":30},{\"trait_type\":\"T\",\"value\":31},{\"trait_type\":\"T\",\"value\":32}]}",
+  "metadata": null
+ },
+ {
+  "case": "an attribute that is not an object",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[\"x\"]}",
+  "metadata": null
+ },
+ {
+  "case": "attributes that are not an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":{\"trait_type\":\"T\",\"value\":\"a\"}}",
+  "metadata": null
+ },
+ {
+  "case": "no attributes at all",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"attributes\":[]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition with only its number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 1
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition numbered 0",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":0}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition with no number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"of\":5}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition whose number is a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":\"1\"}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition of exactly its number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":5,\"of\":5}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 5,
+    "of": 5
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition numbered past its set",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":5,\"of\":4}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 5,
+    "of": 4
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition of 1 numbered far past it",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":9007199254740991,\"of\":1}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 9007199254740991,
+    "of": 1
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition of 0",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"of\":0}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition of a negative count",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"of\":-1}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition with a name of 40 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"name\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 1,
+    "name": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f"
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition with a name of 41 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"name\":\"eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\"}}",
+  "metadata": null
+ },
+ {
+  "case": "an edition with an empty name",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"name\":\"\"}}",
+  "metadata": null
+ },
+ {
+  "case": "an unknown member of an edition is ignored",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":2,\"of\":9,\"total\":null,\"x\":[1]}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "edition": {
+    "number": 2,
+    "of": 9
+   },
+   "attributes": []
+  }
+ },
+ {
+  "case": "an edition that is a number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":5}",
+  "metadata": null
+ },
+ {
+  "case": "an edition whose of is a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"edition\":{\"number\":1,\"of\":\"5\"}}",
+  "metadata": null
+ },
+ {
+  "case": "style params are kept as they are written",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"template\":\"foil-card/1\",\"params\":{\"a\":null,\"b\":\"x\",\"c\":{\"d\":[true,-1]}}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "template": "foil-card/1",
+    "params": {
+     "a": null,
+     "b": "x",
+     "c": {
+      "d": [
+       true,
+       -1
+      ]
+     }
+    }
+   }
+  }
+ },
+ {
+  "case": "must names the ticket extension",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\"],\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "must": [
+    "ticket"
+   ],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   },
+   "ext": {
+    "ticket": {}
+   }
+  }
+ },
+ {
+  "case": "must names ticket and the document has none",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\"]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "must": [
+    "ticket"
+   ]
+  }
+ },
+ {
+  "case": "must names ticket twice",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\",\"ticket\"]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "must": [
+    "ticket",
+    "ticket"
+   ]
+  }
+ },
+ {
+  "case": "an empty must",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "must names an extension this reader does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\",\"coupon\"]}",
+  "metadata": null
+ },
+ {
+  "case": "must names an unknown extension by its domain",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"example.com/coupon\"]}",
+  "metadata": null
+ },
+ {
+  "case": "must that is not an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":\"ticket\"}",
+  "metadata": null
+ },
+ {
+  "case": "must with nine names",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\"]}",
+  "metadata": null
+ },
+ {
+  "case": "must with eight names",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\",\"ticket\"]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "must": [
+    "ticket",
+    "ticket",
+    "ticket",
+    "ticket",
+    "ticket",
+    "ticket",
+    "ticket",
+    "ticket"
+   ]
+  }
+ },
+ {
+  "case": "must with a malformed name",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[\"Ticket\"]}",
+  "metadata": null
+ },
+ {
+  "case": "must with a name that is not a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"must\":[1]}",
+  "metadata": null
+ },
+ {
+  "case": "a collection with only its id",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a collection with a name of 80 astral characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"name\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "name": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f"
+   }
+  }
+ },
+ {
+  "case": "a collection with a name of 81 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"name\":\"ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection with no id",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"url\":\"https://a.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection id in uppercase",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection id of 63 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababa\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection id of 65 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"ababababababababababababababababababababababababababababababababa\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection that is a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":\"abababababababababababababababababababababababababababababababab\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "an unknown member of a collection is ignored",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"symbol\":\"X\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a collection url: https with a port and a path",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://mint.example:8443/p/abababababababababababababababababababababababababababababababab\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://mint.example:8443/p/abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a collection url: https with no path",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://a.example"
+   }
+  }
+ },
+ {
+  "case": "a collection url: https with a bare slash",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://a.example/"
+   }
+  }
+ },
+ {
+  "case": "a collection url: a percent and a tilde in the path",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/~a/%20b_c-d.e\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://a.example/~a/%20b_c-d.e"
+   }
+  }
+ },
+ {
+  "case": "a collection url: http on localhost",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"http://localhost:3338/p/x\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "http://localhost:3338/p/x"
+   }
+  }
+ },
+ {
+  "case": "a collection url: http on 127.0.0.1",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"http://127.0.0.1/p/x\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "http://127.0.0.1/p/x"
+   }
+  }
+ },
+ {
+  "case": "a collection url: http elsewhere",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"http://a.example/p/x\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: http on a host that begins with localhost",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"http://localhost.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a user before the host",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://user@a.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a query",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/p?x=1\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a fragment",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/p#x\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: an uppercase host",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://A.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a port of six digits",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example:123456/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: an empty port",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example:/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: no host",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https:///p\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a path of 300 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://a.example/pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp"
+   }
+  }
+ },
+ {
+  "case": "a collection url: a path of 301 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a host of 253 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab",
+    "url": "https://hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+   }
+  }
+ },
+ {
+  "case": "a collection url: a host of 254 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: a trailing newline",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"https://a.example/\\n\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a collection url: another scheme",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\",\"url\":\"ipfs://abc\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with every member",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"animation\",\"url\":\"https://a.example/a.mp4?x=1&y=2#t\",\"type\":\"video/mp4\",\"sha256\":\"abababababababababababababababababababababababababababababababab\",\"title\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "links": [
+    {
+     "rel": "animation",
+     "url": "https://a.example/a.mp4?x=1&y=2#t",
+     "type": "video/mp4",
+     "sha256": "abababababababababababababababababababababababababababababababab",
+     "title": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a link on ipfs",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"model\",\"url\":\"ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/a.glb\"},{\"rel\":\"source\",\"url\":\"ipfs://Qm1\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "links": [
+    {
+     "rel": "model",
+     "url": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/a.glb"
+    },
+    {
+     "rel": "source",
+     "url": "ipfs://Qm1"
+    }
+   ]
+  }
+ },
+ {
+  "case": "a link whose rel this reader does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"x-shop\",\"url\":\"https://a.example\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "links": [
+    {
+     "rel": "x-shop",
+     "url": "https://a.example"
+    }
+   ]
+  }
+ },
+ {
+  "case": "eight links",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "links": [
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    },
+    {
+     "rel": "external",
+     "url": "https://a.example/"
+    }
+   ]
+  }
+ },
+ {
+  "case": "nine links",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"https://a.example/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "no links in the array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "links that are not an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":{\"rel\":\"external\",\"url\":\"https://a.example/\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "one bad link drops them all",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example/\"},{\"rel\":\"external\",\"url\":\"http://a.example/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with no rel",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"url\":\"https://a.example/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with no url",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with an uppercase rel",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"External\",\"url\":\"https://a.example/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with http on localhost",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"http://localhost/\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a query straight after the host",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example?x=1\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a space in the url",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"https://a.example/a b\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a javascript url",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"javascript:alert(1)\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with an ipfs url with no id",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"external\",\"url\":\"ipfs:///a\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a media type with no slash",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/\",\"type\":\"mp3\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with an uppercase media type",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/\",\"type\":\"Audio/mpeg\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a sha256 in uppercase",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/\",\"sha256\":\"ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a short sha256",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/\",\"sha256\":\"abcd\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a title of 81 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/\",\"title\":\"ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a rest of 301 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"audio\",\"url\":\"https://a.example/rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a link with a rest of 300 characters and every allowed mark",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"links\":[{\"rel\":\"document\",\"url\":\"https://a.example:8443/rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr._~/%?#&=+:,;@!$'()*-\",\"type\":\"application/vnd.a+json\"}]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "links": [
+    {
+     "rel": "document",
+     "url": "https://a.example:8443/rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr._~/%?#&=+:,;@!$'()*-",
+     "type": "application/vnd.a+json"
+    }
+   ]
+  }
+ },
+ {
+  "case": "the locale en",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"en\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "locale": "en"
+  }
+ },
+ {
+  "case": "the locale gsw",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"gsw\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "locale": "gsw"
+  }
+ },
+ {
+  "case": "the locale pt-BR",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"pt-BR\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "locale": "pt-BR"
+  }
+ },
+ {
+  "case": "the locale zh-Hant-TW",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"zh-Hant-TW\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "locale": "zh-Hant-TW"
+  }
+ },
+ {
+  "case": "the locale sr-Latn-RS-x",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"sr-Latn-RS-x\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale EN",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"EN\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale e",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"e\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale engl",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"engl\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale en_GB",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"en_GB\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale en-",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"en-\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "the locale en-a",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":\"en-a\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a locale that is a number",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"locale\":1}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a style with a palette only",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"palette\":{\"ground\":\"#111111\",\"panel\":\"#222222\",\"ink\":\"#eeeeee\",\"accent\":\"#FF5500\"}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "palette": {
+     "ground": "#111111",
+     "panel": "#222222",
+     "ink": "#eeeeee",
+     "accent": "#FF5500"
+    }
+   }
+  }
+ },
+ {
+  "case": "an empty style",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {}
+  }
+ },
+ {
+  "case": "a style with a template this reader does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"template\":\"foil-card/12\",\"params\":{\"shine\":true,\"depth\":[1,2]}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "template": "foil-card/12",
+    "params": {
+     "shine": true,
+     "depth": [
+      1,
+      2
+     ]
+    }
+   }
+  }
+ },
+ {
+  "case": "a sleeve with no parameters has the usual edges",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"template\":\"ticket-sleeve/1\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "template": "ticket-sleeve/1"
+   }
+  },
+  "sleeve": {
+   "corner_radius": 52,
+   "notch_radius": 28,
+   "serration_depth": 0,
+   "serration_pitch": 64
+  }
+ },
+ {
+  "case": "a sleeve ignores parameters it does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"template\":\"ticket-sleeve/1\",\"params\":{\"notch_radius\":0,\"foil\":true}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "style": {
+    "template": "ticket-sleeve/1",
+    "params": {
+     "notch_radius": 0,
+     "foil": true
+    }
+   }
+  },
+  "sleeve": {
+   "corner_radius": 52,
+   "notch_radius": 0,
+   "serration_depth": 0,
+   "serration_pitch": 64
+  }
+ },
+ {
+  "case": "a palette with a colour missing",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"palette\":{\"ground\":\"#111111\",\"panel\":\"#222222\",\"ink\":\"#eeeeee\"},\"template\":\"ticket-sleeve/1\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a palette with a short colour",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"palette\":{\"ground\":\"#111\",\"panel\":\"#222222\",\"ink\":\"#eeeeee\",\"accent\":\"#ff5500\"}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a malformed template",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"template\":\"ticket-sleeve\"}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "params that are not an object",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":{\"params\":[1]}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a style that is not an object",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"style\":\"dark\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a bad style beside good facts and a good collection",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"kind\":\"VIP\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"style\":{\"palette\":5}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "kind": "VIP",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   },
+   "ext": {
+    "ticket": {}
+   }
+  }
+ },
+ {
+  "case": "a ticket with its times and venue",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{\"starts\":0,\"ends\":0,\"venue\":\"\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\\ud83c\\udf9f\",\"gate\":\"B\"}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   },
+   "ext": {
+    "ticket": {
+     "starts": 0,
+     "ends": 0,
+     "venue": "\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f\ud83c\udf9f"
+    }
+   }
+  }
+ },
+ {
+  "case": "a ticket that ends before it starts",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{\"starts\":10,\"ends\":9}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket that starts before 1970",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{\"starts\":-1}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket with a venue of 121 characters",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":{\"venue\":\"vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\"}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket with no collection",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ext\":{\"ticket\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a ticket beside a collection that breaks a rule",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"zz\"},\"ext\":{\"ticket\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "a ticket that is not an object",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":true}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "a ticket that is an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"ticket\":[]}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "an extension this reader does not know",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"coupon\":{\"uses\":1}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "an unknown extension beside a ticket",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":{\"coupon\":{\"uses\":1},\"example.com/thing\":{\"a\":1},\"Not a name\":{},\"ticket-2\":5,\"ticket\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   },
+   "ext": {
+    "ticket": {}
+   }
+  }
+ },
+ {
+  "case": "an extension named by a domain",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ext\":{\"example.com/thing\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "an extension key that is not a name",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ext\":{\"Ticket\":{},\"\":{}}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "no extensions in the object",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"ext\":{}}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": []
+  }
+ },
+ {
+  "case": "ext that is an array",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":[\"ticket\"]}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ },
+ {
+  "case": "ext that is a string",
+  "text": "{\"schema\":\"nft-metadata/2\",\"name\":\"N\",\"collection\":{\"id\":\"abababababababababababababababababababababababababababababababab\"},\"ext\":\"ticket\"}",
+  "metadata": {
+   "schema": "nft-metadata/2",
+   "name": "N",
+   "attributes": [],
+   "collection": {
+    "id": "abababababababababababababababababababababababababababababababab"
+   }
+  }
+ }
+]
