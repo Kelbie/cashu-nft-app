@@ -98,8 +98,8 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew bundleRelease
 
-      # Rename output artifacts to include numo and the version
-      - name: Rename artifacts with numo and version
+      # Rename output artifacts to include the app's name and the version
+      - name: Rename artifacts with name and version
         run: |
           VERSION="${{ github.event.inputs.version }}"
           APK_DIR="app/build/outputs/apk/release"
@@ -127,7 +127,7 @@ jobs:
                  SUFFIX="universal"
               fi
               
-              NEW_NAME="numo-${VERSION}-${SUFFIX}.apk"
+              NEW_NAME="nonfungible-${VERSION}-${SUFFIX}.apk"
               echo "Renaming $f to $APK_DIR/$NEW_NAME"
               mv "$f" "$APK_DIR/$NEW_NAME"
             done
@@ -137,8 +137,8 @@ jobs:
 
           if compgen -G "$BUNDLE_DIR/*.aab" > /dev/null; then
             for f in "$BUNDLE_DIR"/*.aab; do
-              echo "Renaming $f to $BUNDLE_DIR/numo-${VERSION}.aab"
-              mv "$f" "$BUNDLE_DIR/numo-${VERSION}.aab"
+              echo "Renaming $f to $BUNDLE_DIR/nonfungible-${VERSION}.aab"
+              mv "$f" "$BUNDLE_DIR/nonfungible-${VERSION}.aab"
               break
             done
           else
@@ -156,6 +156,6 @@ jobs:
           prerelease: ${{ github.event.inputs.pre_release }}
           files: |
             app/build/outputs/apk/release/*.apk
-            app/build/outputs/bundle/release/numo-${{ github.event.inputs.version }}.aab
+            app/build/outputs/bundle/release/nonfungible-${{ github.event.inputs.version }}.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
