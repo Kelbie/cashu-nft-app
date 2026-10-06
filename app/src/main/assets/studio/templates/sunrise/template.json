@@ -1,0 +1,10 @@
+{
+  "name": "Sunrise",
+  "about": "A sun over stripes, a little different for every NFT.",
+  "kinds": [
+    { "label": "General admission", "options": { "color": "#ff6a1f" } },
+    { "label": "VIP", "options": { "color": "#e5383b" } },
+    { "label": "Speaker", "options": { "color": "#c8f53c" } },
+    { "label": "Crew", "options": { "color": "#7cc7ff" } }
+  ]
+}

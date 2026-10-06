@@ -1,0 +1,11 @@
+{
+  "name": "Poster",
+  "about": "Flat colour, heavy type, a number you can read from the back of the queue.",
+  "kinds": [
+    { "label": "General admission", "options": { "color": "#c8f53c" } },
+    { "label": "VIP", "options": { "color": "#ffd23d" } },
+    { "label": "Speaker", "options": { "color": "#ff6a1f" } },
+    { "label": "Crew", "options": { "color": "#111111" } },
+    { "label": "Guest", "options": { "color": "#fffdf7" } }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Stub",
+  "about": "A paper ticket with a stub to tear off.",
+  "kinds": [
+    { "label": "General admission", "options": { "color": "#c8f53c" } },
+    { "label": "VIP", "options": { "color": "#ffd23d" } },
+    { "label": "Speaker", "options": { "color": "#ff6a1f" } },
+    { "label": "Crew", "options": { "color": "#111111" } }
+  ]
+}
