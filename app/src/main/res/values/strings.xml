@@ -1,1096 +1,556 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  One word for each thing. An NFT is the object; "ticket" is its job at a door. A collection is
+  a set of NFTs, and its ticket types are what its maker called them. NFTs are minted, sent,
+  listed for sale, sold and bought; a guest is admitted. Sats are withdrawn. The app is "this app".
+-->
 <resources>
-    <string name="app_name">Numo</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="item_list_title">Manage Catalog Items</string>
-    
-    
-    <string name="service_description">Cashu Payment Service</string>
-    <string name="ndef_aid_description">NDEF Tag Type 4</string>
-
-    
-    <string name="payment_request_qr_description">Cashu payment request QR code</string>
-
-    
-    <string name="tips_settings_toolbar_back">Back</string>
-    <string name="tips_settings_title">Tips</string>
-    <string name="tips_settings_description">Allow customers to add a tip when paying. Tip presets will appear as quick-select buttons on the payment screen.</string>
-    <string name="tips_settings_enable_label">Enable Tips</string>
-    <string name="tips_settings_presets_header">Tip presets</string>
-    <string name="tips_settings_presets_description">Configure quick-select tip percentages. Customers can also enter a custom amount.</string>
-    <string name="tips_settings_add_preset">Add Preset</string>
-    <string name="tips_settings_reset_defaults">Reset to Defaults</string>
-
-    
-    <string name="tip_percentage_format">%1$d%%</string>
-    <string name="tips_dialog_add_preset_title">Add Tip Preset</string>
-    <string name="tips_dialog_add_preset_hint">Enter percentage (1-100)</string>
-    <string name="tips_dialog_add_preset_positive">Add</string>
-    <string name="tips_dialog_add_preset_negative">Cancel</string>
-    <string name="tips_error_invalid_percentage">Please enter a valid percentage (1-100)</string>
-    <string name="tips_error_could_not_add_preset">Could not add preset (may already exist or at max capacity)</string>
-
-    <string name="tips_dialog_edit_preset_title">Edit Tip Preset</string>
-    <string name="tips_dialog_edit_preset_positive">Save</string>
-
-    <string name="tips_dialog_remove_preset_title">Remove Preset</string>
-    <string name="tips_dialog_remove_preset_message">Remove %1$d%% from tip presets?</string>
-    <string name="tips_dialog_remove_preset_positive">Remove</string>
-
-    <string name="tips_dialog_reset_defaults_title">Reset to Defaults</string>
-    <string name="tips_dialog_reset_defaults_message" formatted="false">Reset tip presets to default values (5%, 10%, 15%, 20%)?</string>
-    <string name="tips_dialog_reset_defaults_positive">Reset</string>
-    <string name="tips_toast_reset_to_defaults">Presets reset to defaults</string>
-
-    
-    <string name="tip_selection_close_content_description">Close</string>
-    <string name="tip_selection_order_total_label">Order Total</string>
-    <string name="tip_selection_question_add_tip">Would you like to add a tip?</string>
-    <string name="tip_selection_custom_tip_label">Custom Tip</string>
-    <string name="tip_selection_custom_tip_subtitle">Enter amount</string>
-    <string name="tip_selection_no_tip_button">No Tip</string>
-    <string name="tip_selection_custom_currency_switch_to_btc">Switch to ₿</string>
-    <string name="tip_selection_custom_currency_switch_to_fiat">Switch to %1$s</string>
-    <string name="tip_selection_custom_question">Enter tip amount</string>
-    <string name="tip_selection_main_back">Back</string>
-    <string name="tip_selection_main_confirm">Confirm</string>
-
-    
-    <string name="payment_request_close_content_description">Close</string>
-    <string name="payment_request_share_content_description">Share</string>
-    <string name="payment_request_pay_label">Pay</string>
-    <string name="payment_request_instruction_scan_or_tap">Scan or Tap to Pay</string>
-    <string name="payment_request_nfc_reading">Reading from NFC...</string>
-    <string name="payment_request_animation_close">Done</string>
-
-    <string name="payment_request_error_invalid_amount">Invalid payment amount</string>
-    <string name="payment_request_error_ndef_prepare">Failed to prepare NDEF payment data</string>
-    <string name="payment_request_error_nothing_to_share">Nothing to share yet</string>
-
-    <string name="payment_request_status_preparing">Preparing payment request...</string>
-    <string name="payment_request_status_waiting_for_payment">Waiting for payment...</string>
-    <string name="payment_request_status_error_qr">Error generating QR code</string>
-    <string name="payment_request_status_error_generic">Error: %1$s</string>
-    <string name="payment_request_status_success">Payment successful!</string>
-    <string name="payment_request_status_failed">Payment failed: %1$s</string>
-    <string name="payment_request_lightning_error_failed">Lightning payment failed: %1$s</string>
-
-    <string name="payment_request_tip_info_with_percentage">includes %1$s tip (%2$d%%)</string>
-    <string name="payment_request_tip_info_no_percentage">includes %1$s tip</string>
-
-    <string name="payment_request_share_chooser_title">Share Payment Request</string>
-
-    
-    <string name="payment_received_amount">%1$s received.</string>
-    <string name="payment_received_button_view_details">View Details</string>
-    <string name="payment_received_button_close">Close</string>
-    <string name="payment_received_close_content_description">Close</string>
-    <string name="payment_received_share_content_description">Share</string>
-    <string name="payment_received_success_background_description">Success background</string>
-    <string name="payment_received_success_icon_description">Success</string>
-
-    <string name="payment_received_error_no_token">No token to share</string>
-    <string name="payment_received_share_chooser_title">Share token</string>
-    <string name="payment_received_error_no_share_app">No apps available to share this token</string>
-    <string name="payment_received_error_no_details">Transaction details not available</string>
-
-    
-    <string name="payment_failure_title">Payment not received</string>
-    <string name="payment_failure_message">This payment could not be completed. You can try again or start a new charge.</string>
-    <string name="payment_failure_reassurance">No funds were transferred — it\'s safe to retry.</string>
-    <string name="payment_failure_button_try_again">Try again</string>
-    <string name="payment_failure_button_close">Close</string>
-    <string name="payment_failure_close_content_description">Close</string>
-    <string name="payment_failure_error_background_description">Error indicator</string>
-    <string name="payment_failure_error_icon_description">Payment not received</string>
-    <string name="payment_failure_error_no_pending">No pending payment to retry</string>
-
-    
-    <string name="onboarding_welcome_tagline">Accept Bitcoin payments instantly with zero fees.</string>
-    <string name="onboarding_welcome_message">Accept Bitcoin payments instantly with zero fees using Cashu ecash technology.</string>
-    <string name="onboarding_terms_text">By continuing, you agree to our <annotation id="terms">Terms of Service</annotation> and <annotation id="privacy">Privacy Policy</annotation></string>
-    <string name="onboarding_get_started">Get Started</string>
-
-    
-    <string name="onboarding_setup_title">Set Up Your Wallet</string>
-    <string name="onboarding_setup_subtitle">Choose how you\'d like to get started</string>
-    <string name="onboarding_create_wallet_title">Create New Wallet</string>
-    <string name="onboarding_create_wallet_subtitle">Start fresh with a new seed phrase</string>
-    <string name="onboarding_restore_wallet_title">Restore From Backup</string>
-    <string name="onboarding_restore_wallet_subtitle">Use your existing seed phrase</string>
-
-    <!-- Explainer -->
-    <string name="explainer_teaser_title">Tap to learn how Numo works.</string>
-    <string name="explainer_slide1_title">Tap to get paid</string>
-    <string name="explainer_slide1_body">Enter an amount, tap charge, and your customer holds their phone to yours. Payment lands instantly over NFC.</string>
-    <string name="explainer_slide2_title">Automatic self-custody</string>
-    <string name="explainer_slide2_body">Set up auto-withdraw to move incoming payments straight to your own Lightning wallet.</string>
-    <string name="explainer_slide3_title">Zero fees</string>
-    <string name="explainer_slide3_body">Numo is fully open-source and charges no fees. No subscriptions, no cuts, no hidden costs. Every sat you receive is yours.</string>
-    <string name="explainer_image_placeholder">Image placeholder</string>
-
-
-    <string name="onboarding_seed_toolbar_back">Back</string>
-    <string name="onboarding_seed_toolbar_title">Restore Wallet</string>
-    <string name="onboarding_seed_instruction_title">Enter your 12 word seed phrase</string>
-    <string name="onboarding_seed_instruction_body">Enter the words in the correct order to restore your wallet.</string>
-    <string name="onboarding_seed_paste_button">Paste</string>
-    <string name="onboarding_seed_validation_ready">Ready to continue</string>
-    <string name="onboarding_seed_invalid_characters">Invalid characters detected</string>
-    <string name="onboarding_seed_words_entered_count">%1$d of 12 words entered</string>
-    <string name="onboarding_seed_continue">Continue</string>
-    <string name="onboarding_clipboard_empty">Clipboard is empty</string>
-    <string name="onboarding_seed_paste_invalid">Please paste a valid 12-word seed phrase</string>
-    <string name="onboarding_seed_paste_success">Seed phrase pasted</string>
-
-
-    <string name="onboarding_status_creating_wallet">Creating new wallet…</string>
-    <string name="onboarding_status_restoring_wallet">Restoring wallet…</string>
-    <string name="onboarding_status_generating_seed">Generating seed phrase…</string>
-    <string name="onboarding_status_setting_up_mints">Setting up default mints…</string>
-    <string name="onboarding_status_initializing_wallet">Initializing wallet…</string>
-    <string name="onboarding_status_connecting_mints">Connecting to mints…</string>
-    <string name="onboarding_status_fetching_mints">Fetching mints information…</string>
-    <string name="onboarding_generating_hint">This will only take a moment</string>
-    <string name="onboarding_fetching_searching_backup">Searching for backup…</string>
-    <string name="onboarding_fetching_checking_relays">Checking Nostr relays for your mint configuration</string>
-
-    
-    <string name="onboarding_mints_toolbar_back">Back</string>
-    <string name="onboarding_mints_toolbar_title">Your Mints</string>
-    <string name="onboarding_backup_found_title">Backup Found</string>
-    <string name="onboarding_backup_found_subtitle">Last backed up %1$s</string>
-    <string name="onboarding_backup_not_found_title">No Backup Found</string>
-    <string name="onboarding_backup_not_found_subtitle">Using default mints</string>
-    <string name="onboarding_mints_title">Select Mints</string>
-    <string name="onboarding_mints_subtitle_restore">Select which mints to restore</string>
-    <string name="onboarding_mints_subtitle_description">This mint will hold your bitcoin. You can withdraw to your own wallet at any time, or set a payout threshold to do it automatically.</string>
-    <string name="onboarding_mints_count">%1$d mint%2$s selected</string>
-    <string name="onboarding_mints_continue_restore">Restore Wallet</string>
-    <string name="onboarding_mints_continue_new_wallet">Continue</string>
-    <string name="onboarding_mints_add_different">Add a different mint</string>
-    <string name="onboarding_mints_add_hint">Enter mint address</string>
-    <string name="onboarding_mints_scan_row_title">Scan QR Code</string>
-    <string name="onboarding_mints_scan_row_subtitle">Tap to scan an address</string>
-    <string name="onboarding_mint_generic_name">Mint</string>
-    <string name="onboarding_mints_default_section_title">Default Mint</string>
-    <string name="onboarding_mints_popular_section_title">Popular Mints</string>
-    <string name="onboarding_mints_add_different_button">+ New Mint</string>
-    <string name="onboarding_mints_hero_label">DEFAULT MINT</string>
-    <string name="onboarding_mints_hero_subtitle">Holds your bitcoin</string>
-    <string name="onboarding_mints_hero_default_badge">Default</string>
-    <string name="onboarding_mints_hero_helper">Withdraw to your own wallet anytime, or set a payout threshold to do it automatically.</string>
-    <string name="onboarding_mints_popular_header">POPULAR MINTS</string>
-    <string name="onboarding_mints_tap_hint">Tap to change default mint</string>
-    <string name="onboarding_mints_add_new_button">+ Add New Mint</string>
-    <string name="onboarding_mints_set_default_toast">%1$s set as default</string>
-    <string name="onboarding_add_mint_sheet_title">Add a Mint</string>
-    <string name="onboarding_add_mint_url_hint">Enter mint URL</string>
-    <string name="onboarding_add_mint_button">Add</string>
-    <string name="onboarding_add_mint_or">or</string>
-    <string name="onboarding_add_mint_scan_qr">Scan</string>
-    <string name="onboarding_add_mint_loading">Adding mint…</string>
-    <string name="mint_discovery_action">Discover mints</string>
-    <string name="mint_discovery_title">Discover mints</string>
-    <string name="mint_discovery_subtitle">Community recommendations from Nostr. Check the operator before trusting a mint with funds.</string>
-    <string name="mint_discovery_loading">Looking across Nostr relays…</string>
-    <string name="mint_discovery_search_hint">Search mints</string>
-    <string name="mint_discovery_no_matches">No mints match your search.</string>
-    <string name="mint_discovery_empty">No mint recommendations were found. Check your connection and try again.</string>
-    <string name="mint_discovery_retry">Try again</string>
-    <string name="mint_discovery_rating">★ %1$s · %2$d recommendations</string>
-    <string name="mint_discovery_announced">Announced on Nostr</string>
-    <string name="mint_discovery_select">Select mint</string>
-    <plurals name="mint_discovery_count">
-        <item quantity="one">%d mint found</item>
-        <item quantity="other">%d mints found</item>
-    </plurals>
-    <plurals name="mint_discovery_recommendations">
-        <item quantity="one">%d recommendation</item>
-        <item quantity="other">%d recommendations</item>
-    </plurals>
-
-
-    <string name="onboarding_restoring_title">Restoring Wallet</string>
-    <string name="onboarding_restoring_initializing">Initializing restore...</string>
-
-    
-    <string name="onboarding_success_restored_title">Wallet Restored</string>
-    <string name="onboarding_success_restored_recovered">Recovered %1$d sats</string>
-    <string name="onboarding_success_restored_total_balance">Total balance: %1$d sats</string>
-    <string name="onboarding_success_created_title">Wallet Created</string>
-    <string name="onboarding_success_created_subtitle">Your wallet is ready to use</string>
-    <string name="onboarding_success_balance_by_mint">BALANCE BY MINT</string>
-    <string name="onboarding_enter_wallet_button">Continue</string>
-
-    
-    <string name="onboarding_error_creating_wallet">Error creating wallet: %1$s</string>
-    <string name="onboarding_error_initializing_wallet">Error initializing wallet: %1$s</string>
-
-    
-    <string name="restore_warning_title">Important Warning</string>
-    <string name="restore_warning_body">Restoring from a seed phrase will replace your current wallet. Make sure you have backed up your current seed phrase before proceeding.</string>
-    <string name="restore_seed_instruction_title">Enter your 12-word seed phrase</string>
-    <string name="restore_seed_paste_button">Paste from Clipboard</string>
-    <string name="restore_seed_continue">Continue</string>
-
-    <string name="restore_fetching_title">Checking for Backup</string>
-    <string name="restore_fetching_status">Searching Nostr relays...</string>
-
-    <string name="restore_backup_found_title">Backup Found</string>
-    <string name="restore_backup_found_subtitle">Last backed up Jan 1, 2024</string>
-    <string name="restore_backup_unknown_date">Unknown date</string>
-
-    <string name="restore_mints_title">Select mints to restore</string>
-    <string name="restore_mints_count">0 mints selected</string>
-    <string name="restore_mints_start_button">Start Restore</string>
-    <string name="restore_confirm_dialog_message">This will restore your wallet from the entered seed phrase.\n\n⚠️ IMPORTANT:\n• Make sure you have backed up your current seed phrase\n• This action cannot be undone\n• Restore will be attempted for %1$d selected mint(s)\n\n%2$s</string>
-    <string name="restore_confirm_current_seed_note">Your current seed phrase starts with: \"%1$s...\"</string>
-
-    <string name="restore_progress_title">Restoring Wallet</string>
-    <string name="restore_progress_status">Connecting to mints...</string>
-    <string name="restore_progress_status_waiting">Waiting...</string>
-    <string name="restore_progress_balance_increase">+%1$d sats</string>
-    <string name="restore_progress_balance_decrease">%1$d sats</string>
-
-    <string name="restore_success_title">Wallet Restored</string>
-    <string name="restore_success_subtitle">Your wallet has been successfully restored</string>
-    <string name="restore_success_balance_line">%1$d sats</string>
-    <string name="restore_success_done_button">Done</string>
-
-    <string name="restore_error_failed">Restore failed: %1$s</string>
-    <string name="restore_error_no_mints_selected">Please select at least one mint to restore.</string>
-
-    
-    <string name="seed_phrase_toolbar_back">Back</string>
-    <string name="seed_phrase_toolbar_title">Seed Phrase</string>
-    <string name="seed_phrase_warning_title">Keep this secret!</string>
-    <string name="seed_phrase_warning_body">Anyone with these 12 words can access your funds. Write them down and store them in a safe place. Never share them with anyone.</string>
-    <string name="seed_phrase_title">Your Recovery Phrase</string>
-    <string name="seed_phrase_show_button">Show</string>
-    <string name="seed_phrase_copy_button">Copy to Clipboard</string>
-    <string name="seed_phrase_clipboard_disclaimer">Make sure to clear your clipboard after pasting</string>
-
-    
-    <string name="dialog_terms_title">Terms of Service</string>
-    <string name="dialog_terms_body">"NUMO WALLET - TERMS OF SERVICE\n\n1. ACCEPTANCE\nBy using this wallet application, you agree to these terms.\n\n2. NATURE OF SERVICE\nThis is a self-custodial Bitcoin wallet using Cashu ecash technology. You are solely responsible for your funds and seed phrase.\n\n3. SEED PHRASE\nYour 12-word seed phrase is the ONLY way to recover your wallet. Never share it. Store it securely offline. We cannot recover lost seed phrases.\n\n4. NO WARRANTY\nThis software is provided \"as is\" without warranty of any kind. Use at your own risk.\n\n5. LIMITATION OF LIABILITY\nWe are not liable for any loss of funds, whether through bugs, user error, or third-party mint failures.\n\n6. ECASH MINTS\nEcash tokens are held by third-party mints. These mints may fail or become unavailable. Diversify across multiple mints.\n\n7. PRIVACY\nThis wallet does not collect personal data. Transactions are processed through ecash mints which may have their own privacy policies.\n\n8. UPDATES\nThese terms may be updated. Continued use constitutes acceptance.\n\nLast updated: November 2024"</string>
-    <string name="common_close">Close</string>
-
-    
-    <string name="empty_state_items_title">Add your first item</string>
-    <string name="empty_state_items_subtitle">Create menu items or products so you can charge with a single tap instead of typing amounts.</string>
-    <string name="empty_state_items_add_button">Add item</string>
-    <string name="empty_state_items_import_button">Import from CSV</string>
-
-    
+    <string name="app_name">nonfungible.cash</string>
     <string name="common_back">Back</string>
-    <string name="common_search">Search</string>
-    <string name="developer_settings_title">Developer Settings</string>
-    <string name="developer_settings_section_debugging">Debugging</string>
-    <string name="developer_settings_restart_onboarding_title">Restart Onboarding</string>
-    <string name="developer_settings_restart_onboarding_subtitle">Start the onboarding flow again</string>
-    <string name="developer_settings_lightning_invoice_title">Delay Lightning Invoice</string>
-    <string name="developer_settings_lightning_invoice_subtitle">Only fetch invoice when Lightning tab is selected</string>
-    <string name="developer_settings_reset_btcmap_promo_title">Reset BTCMap Promotion</string>
-    <string name="developer_settings_reset_btcmap_promo_subtitle">Show the BTCMap promo banner again on next app launch</string>
-    
+    <string name="tap_service">Door of nonfungible.cash</string>
 
-    <!-- BTCMap Promo & Banner -->
-    <string name="btcmap_promo_title">Publish on BTCMap</string>
-    <string name="btcmap_promo_message">Would you like to list your store on BTCMap and attract more Bitcoin users?</string>
-    <string name="btcmap_promo_dismiss">Not now</string>
-    <string name="btcmap_promo_learn_more">Learn more</string>
-    <string name="btcmap_banner_message">Add your store to BTCMap.</string>
-    <string name="btcmap_banner_dismiss">Dismiss</string>
+    <!-- Welcome -->
 
-    <!-- BTCMap Explainer -->
-    <string name="btcmap_explainer_title">What is BTCMap?</string>
-    <string name="btcmap_explainer_desc">BTCMap is a collaborative map for finding places that accept Bitcoin. By listing your store, you can reach more customers in the Bitcoin community.</string>
-    <string name="btcmap_explainer_add_store">Add your store</string>
+    <!-- A guest\'s NFTs -->
+    <string name="guest_tickets">Tickets</string>
+    <string name="guest_others">Other NFTs</string>
+    <string name="guest_none">No NFTs yet</string>
+    <string name="guest_none_help">Scan a code to receive an NFT, or find a collection and buy one.</string>
+    <string name="guest_scan">Scan</string>
+    <string name="guest_find">Find NFTs</string>
+    <string name="guest_sats">%s sats</string>
+    <string name="guest_done">Done</string>
+    <string name="guest_close">Close</string>
+    <string name="guest_code">A code to scan</string>
+    <string name="guest_slow">The site took too long. Try again.</string>
+    <string name="guest_not_ours">This code isn\'t a door code, an NFT link or a sale. Try another.</string>
+    <string name="guest_sold">Sold. The sats are in your wallet.</string>
+    <string name="guest_yours">It\'s yours</string>
+    <string name="guest_for_sale">For sale · %s sats</string>
 
-    <string name="developer_settings_warning">⚠️ Developer settings are for testing and debugging purposes only. Use with caution.</string>
+    <!-- One NFT, on its own page -->
+    <string name="nft_hold">Hold your phone to the door</string>
+    <string name="nft_shown">Shown at %s. Watch the door\'s screen.</string>
+    <string name="nft_lost">Hold it there a little longer.</string>
+    <string name="nft_scan">Scan door code</string>
+    <string name="nft_sell">Sell</string>
+    <string name="nft_send">Send</string>
+    <string name="nft_group_one">Showing this one · Show all %d</string>
+    <string name="nft_group_all">Showing all %d · Show only this one</string>
 
-    
-    <string name="developer_error_logs_title">Error Logs</string>
-    <string name="developer_error_logs_subtitle">View and export recent error logs</string>
-    <string name="developer_error_logs_section_title">Error logs</string>
-    <string name="developer_error_logs_filter_label">Show errors up to</string>
-    <string name="developer_error_logs_filter_today">Today</string>
-    <string name="developer_error_logs_copy_all">Copy All</string>
-    <string name="developer_error_logs_share">Share</string>
-    <string name="developer_error_logs_empty">No error logs available.</string>
-    <string name="developer_error_logs_starting">Starting error collection…</string>
-    <string name="developer_error_logs_retrying">Error collection is unavailable. Retrying automatically…</string>
-    <string name="developer_error_logs_disabled">Enable Developer Mode to collect new errors.</string>
-    <string name="developer_error_logs_copied">Error logs copied to clipboard</string>
-    <string name="developer_error_logs_share_title">Share Error Logs</string>
+    <!-- A guest at a door -->
+    <string name="guest_door_reading">Reading the door code…</string>
+    <string name="guest_door_failed">Couldn\'t check your tickets</string>
+    <string name="guest_door_no_network">No connection. Open the ticket you want to show, then hold your phone to the door.</string>
+    <string name="guest_door_none">No ticket for this door</string>
+    <string name="guest_door_none_why">%1$s admits NFTs from %2$s, and you don\'t hold one.</string>
+    <string name="guest_door_asks">This door asks to see your ticket for %s. Showing it does not give it away.</string>
+    <string name="guest_door_asks_plain">This door asks to see your ticket. Showing it does not give it away.</string>
+    <string name="guest_door_show">Show ticket</string>
+    <string name="guest_door_show_all">Show all %d</string>
+    <string name="guest_door_show_one">Show this one</string>
+    <string name="guest_door_showing">Showing…</string>
+    <string name="guest_door_sent">Ticket shown</string>
+    <string name="guest_door_look">Watch the screen at %s for the result.</string>
+    <string name="guest_door_direct">Show this to the door</string>
+    <string name="guest_door_direct_help">You have no connection, and you don\'t need one. Hold your phone to the door, or let the door scan this code.</string>
 
-    
-    <string name="nfc_dialog_title_scan_to_pay">Scan to Pay</string>
-    <string name="nfc_dialog_content_description_contactless">Contactless payment</string>
-    <string name="nfc_dialog_content_description_cashu">Cashu</string>
-    <string name="nfc_dialog_subtitle_or_scan_qr">or scan QR code</string>
-    <string name="nfc_dialog_waiting_message">Waiting for NFC...</string>
-    <string name="nfc_enable_title">Enable NFC</string>
-    <string name="nfc_enable_message">NFC is required for tap to pay. Please enable it in settings.</string>
-    <string name="nfc_enable_button">Settings</string>
-    <string name="common_cancel">Cancel</string>
+    <!-- A guest receiving and buying -->
+    <string name="guest_gift">An NFT for you</string>
+    <string name="guest_gift_taking">Receiving…</string>
+    <string name="guest_gift_failed">NFT not received</string>
+    <string name="guest_sale_reading">Checking the sale…</string>
+    <string name="guest_sale_gone">No longer for sale</string>
+    <string name="guest_sale_unread">Couldn\'t load this sale</string>
+    <string name="guest_sale_from">%1$s sats · listed by %2$s</string>
+    <string name="guest_sale_pay">Pay %s sats</string>
+    <string name="guest_mint_unknown">This sale asks to be paid at %s, which this app doesn\'t know. Nothing was paid.</string>
+    <string name="guest_pay_test">Putting %s test sats in your wallet…</string>
+    <string name="guest_pay_invoice">This invoice puts %1$s sats in your wallet at %2$s. Pay it with any Lightning wallet.</string>
+    <string name="guest_pay_open">Open wallet</string>
+    <string name="guest_pay_copied">No Lightning wallet found on this phone. The invoice is copied: paste it into your wallet.</string>
+    <string name="guest_paying">Paying…</string>
+    <string name="guest_waiting">Paid. Waiting for the seller to send it…</string>
+    <string name="guest_not_yet">Your payment is held until the seller sends the NFT. It will appear among your NFTs when they do. If they don\'t, your sats are returned.</string>
 
-    
-    <string name="dialog_title_enter_pin">Enter PIN</string>
-    <string name="dialog_pin_hint">PIN</string>
+    <!-- A guest sending and selling -->
+    <string name="guest_send_help">This makes a code and a link. Whoever scans the code or opens the link first gets the NFT, and after that it is no longer yours.</string>
+    <string name="guest_send_make">Create link</string>
+    <string name="guest_sell_help">Anyone can buy it at your price, including the organiser. Sales complete only while this app is open.</string>
+    <string name="guest_sell_help_test">Anyone can buy it at your price. Your wallet holds test sats, so you would be paid in test sats, worth nothing. Sales complete only while this app is open.</string>
+    <string name="guest_sell_price">Your price, in sats</string>
+    <string name="guest_sell_start">List for sale</string>
+    <string name="guest_sell_change">Change price</string>
+    <string name="guest_sell_stop">Cancel listing</string>
+    <string name="guest_sell_refused">Couldn\'t list this NFT for sale. If you made a link to send it, it is promised to whoever opens that.</string>
 
-    
-    <string name="nfc_payment_error_enter_amount_first">Enter an amount to charge</string>
-    <string name="nfc_payment_error_rescan_not_supported">This card type isn\'t supported yet</string>
-    <string name="nfc_payment_error_insufficient_funds">Not enough funds on this card — ask the customer to top up or use another payment method</string>
-    <string name="nfc_payment_error_pin_flow_not_implemented">This card requires a PIN, which isn\'t supported yet</string>
-    <string name="nfc_payment_error_card_sw">The card couldn\'t be read. Try tapping again. (Code: 0x%04X)</string>
-    <string name="nfc_payment_error_generic">Payment not completed: %1$s</string>
-    <string name="nfc_payment_error_nfc_comm">Tap lost — hold the card steady and try again</string>
-    <string name="nfc_payment_error_satocash">Card couldn\'t be read: %1$s (Code: 0x%2$04X)</string>
-    <string name="nfc_payment_error_unexpected">Something went wrong. Try again — no funds were transferred.</string>
-    <string name="nfc_payment_hint_keep_close">Keep phone close</string>
-    <string name="nfc_payment_hint_processing">Processing payment...\nYou can lift your phone</string>
+    <!-- A guest\'s wallet -->
+    <string name="guest_wallet_add_hint">How many sats to add</string>
+    <string name="guest_key">Copy backup key</string>
+    <string name="guest_key_message">Your NFTs are in a collection whose only key is on this phone. Whoever has the key has the NFTs. Keep a copy somewhere safe: with it, they can be opened on %s from any browser, and without it they are lost with this phone.</string>
 
-    
-    <string name="common_ok">OK</string>
-    <string name="common_or">or</string>
+    <!-- A collection, for a guest -->
+    <string name="event_looking">Looking on %s…</string>
+    <string name="event_none">none for sale right now</string>
+    <string name="event_unread">Couldn\'t load this collection. Check your connection and try again.</string>
+    <string name="nft_buy">Buy for %s sats</string>
+    <plurals name="event_selling">
+        <item quantity="one">%1$d for sale, at %2$s sats</item>
+        <item quantity="other">%1$d for sale, from %2$s sats</item>
+    </plurals>
+    <string name="event_from_host">From the organiser</string>
+    <string name="event_resold">Listed by %s</string>
 
-    
-    <string name="withdraw_lightning_toolbar_back">Back</string>
-    <string name="withdraw_lightning_title">Withdraw</string>
-    <string name="withdraw_lightning_balance_label">Available Balance</string>
-    <string name="withdraw_lightning_mint_name_label">Mint Name</string>
-    <string name="withdraw_lightning_section_withdraw_to">WITHDRAW TO</string>
-    <string name="withdraw_lightning_option_invoice">⚡ Lightning Invoice</string>
-    <string name="withdraw_lightning_invoice_hint_label">Enter a Lightning invoice (BOLT11)</string>
-    <string name="withdraw_lightning_invoice_hint_value">lnbc...</string>
-    <string name="withdraw_lightning_option_address">📧 Lightning Address</string>
-    <string name="withdraw_lightning_address_hint_label">Enter a Lightning address</string>
-    <string name="withdraw_lightning_address_hint_value">user@domain.com</string>
-    <string name="withdraw_lightning_amount_label">Amount</string>
-    <string name="withdraw_lightning_amount_hint">1000</string>
-    <string name="withdraw_lightning_button_continue">Continue</string>
+    <string name="scan_help">Point the camera at a door code, or a code for an NFT or a sale.</string>
+    <string name="scan_no_camera">Allow camera access in your phone\'s settings to scan codes.</string>
 
-    
-    <string name="withdraw_lightning_error_invalid_mint_url">Invalid mint URL</string>
-    <string name="withdraw_lightning_error_enter_invoice">Please enter a Lightning invoice</string>
-    <string name="withdraw_lightning_error_wallet_not_initialized">Wallet not initialized</string>
-    <string name="withdraw_lightning_error_insufficient_balance">Insufficient balance. Amount + fees (%1$d sats) exceeds your balance (%2$d sats). Try an amount under %3$d sats.</string>
-    <string name="withdraw_lightning_error_enter_address">Please enter a Lightning address</string>
-    <string name="withdraw_lightning_error_enter_valid_amount">Please enter a valid amount</string>
-    <string name="withdraw_lightning_error_generic">Error: %1$s</string>
+    <!-- The door -->
+    <string name="door_settings">Settings</string>
+    <string name="door_request">Door code</string>
+    <string name="door_tap">Hold your phone here</string>
+    <string name="door_tap_help">Open your ticket, then hold your phone to this one.</string>
+    <string name="door_waiting">Scan to show your ticket</string>
+    <string name="door_way_tap">Tap</string>
+    <string name="door_way_code">Show code</string>
+    <string name="door_way_scan">Scan guest</string>
+    <string name="door_nfc_off">NFC is off. Turn it on for guests to hold their phone here.</string>
+    <string name="door_next">New code in %d s</string>
+    <string name="door_checking">Checking with %s…</string>
+    <string name="door_checking_group">%d NFTs</string>
+    <string name="door_checking_unknown">An NFT</string>
+    <string name="door_fake">That wasn\'t a valid ticket. Nobody was admitted.</string>
+    <string name="door_expired">That code had expired. Try again with this one.</string>
+    <string name="door_not_answer">That code isn\'t a ticket being shown to this door.</string>
+    <string name="door_yours">%1$s · %2$d of %3$d sold</string>
+    <string name="door_hand">Sell or send</string>
 
-    
-    <string name="withdraw_melt_toolbar_back">Back</string>
-    <string name="withdraw_melt_title">Confirm Withdrawal</string>
-    <string name="withdraw_melt_summary">Withdraw from %1$s</string>
-    <string name="withdraw_melt_destination_label">To</string>
-    <string name="withdraw_melt_destination_placeholder">user@domain.com</string>
-    <string name="withdraw_melt_amount_label">Amount</string>
-    <string name="withdraw_melt_fee_label">Fee Reserve</string>
-    <string name="withdraw_melt_total_label">Total</string>
-    <string name="withdraw_melt_fee_note">The fee reserve will be returned if the Lightning fee is lower.</string>
-    <string name="withdraw_melt_loading">Processing withdrawal...</string>
-
-    
-    <string name="withdraw_melt_error_invalid_data">Invalid melt quote data</string>
-    <string name="withdraw_melt_error_wallet_not_initialized">Wallet not initialized</string>
-    <string name="withdraw_melt_error_invoice_not_paid">Payment failed: Invoice not paid</string>
-    <string name="withdraw_melt_error_pending">Payment is pending. Please check back later.</string>
-    <string name="withdraw_melt_error_unknown_state">Payment failed: Unknown state</string>
-    <string name="withdraw_melt_error_generic">Error: %1$s</string>
-    <string name="withdraw_melt_destination_unknown">Unknown</string>
-    <string name="withdraw_processing_title">Processing withdrawal</string>
-    <string name="withdraw_processing_subtitle">Please keep the device awake while we complete your transfer</string>
-    <string name="withdraw_processing_amount_label">Amount</string>
-    <string name="withdraw_processing_destination_label">Destination</string>
-    <string name="withdraw_processing_status_preparing">Preparing your withdrawal</string>
-    <string name="withdraw_processing_status_contacting">Contacting the mint</string>
-    <string name="withdraw_processing_status_settling">Waiting for Lightning settlement</string>
-    <string name="withdraw_processing_step_preparing">Preparing funds</string>
-    <string name="withdraw_processing_step_contacting">Contacting mint</string>
-    <string name="withdraw_processing_step_settling">Lightning settlement</string>
-    <string name="withdraw_processing_hint">This usually takes less than 10 seconds. You can safely leave this screen once completed.</string>
-
-    <string name="withdraw_melt_destination_invoice_fallback">Lightning Invoice</string>
-
-    
-    <string name="withdraw_success_amount">%1$s sent.</string>
-    <string name="withdraw_success_destination">To %1$s</string>
-    <string name="withdraw_success_destination_fallback">Lightning</string>
-    <string name="withdraw_success_close">Close</string>
-    <string name="withdraw_success_background_description">Success background</string>
-    <string name="withdraw_success_icon_description">Success</string>
-
-    
-    <string name="history_toolbar_title">Activity</string>
-    <string name="history_section_payment_history">PAYMENT HISTORY</string>
-    <string name="history_empty">Your payments will appear here</string>
-    <string name="history_empty_subtitle">After your first charge, you\'ll see a record of every payment received.</string>
-
-    <string name="transaction_row_copy">Copy</string>
-    <string name="transaction_row_open">Open</string>
-    <string name="transaction_row_delete">Delete</string>
-
-    <string name="token_history_copy">Copy token</string>
-    <string name="token_history_open_with">Open token with...</string>
-    <string name="token_history_delete">Delete token</string>
-
-    <string name="transaction_details_amount_placeholder">$0</string>
-    <string name="transaction_details_date_label">Date</string>
-    <string name="transaction_details_token_placeholder">Token...</string>
-    <string name="transaction_details_copy_token">Copy Token</string>
-    <string name="transaction_details_open_with">Open With...</string>
-    <string name="transaction_details_delete_transaction">Delete Transaction</string>
-
-    <string name="payment_history_title">Payment</string>
-    <string name="payment_history_status_pending">Pending</string>
-    <string name="history_checking_payment_status">Checking payment status...</string>
-
-    <string name="transaction_detail_toolbar_back">Back</string>
-    <string name="transaction_detail_toolbar_title">Transaction Details</string>
-    <string name="transaction_detail_toolbar_share">Share</string>
-
-    <string name="transaction_detail_type_payment_received">Payment Received</string>
-    <string name="transaction_detail_mint_label">From Mint</string>
-    <string name="transaction_detail_view_receipt">View Receipt</string>
-    <string name="transaction_detail_section_transaction_details">TRANSACTION DETAILS</string>
-
-    <string name="transaction_detail_payment_type_label">Payment Type</string>
-    <string name="transaction_detail_payment_type_cashu">Cashu</string>
-    <string name="transaction_detail_amount_label">Amount</string>
-    <string name="transaction_detail_token_unit_label">Token Unit</string>
-    <string name="transaction_detail_entered_as_label">Entered As</string>
-    <string name="transaction_detail_entered_amount_label">Entered Amount</string>
-    <string name="transaction_detail_bitcoin_price_label">Bitcoin Price</string>
-    <string name="transaction_detail_tip_label">Tip</string>
-    <string name="transaction_detail_tip_equivalent_label">  (equivalent)</string>
-    <string name="transaction_detail_total_paid_label">Total Paid</string>
-    <string name="transaction_detail_mint_label_short">Mint</string>
-
-    <string name="transaction_detail_lightning_invoice_header">LIGHTNING INVOICE</string>
-    <string name="transaction_detail_lightning_invoice_placeholder">lnbc...</string>
-    <string name="transaction_detail_copy_invoice_hint">Tap to copy invoice</string>
-
-    <string name="transaction_detail_token_header">CASHU TOKEN</string>
-    <string name="transaction_detail_token_placeholder">cashuA...</string>
-
-    <string name="transaction_detail_payment_request_header">PAYMENT REQUEST</string>
-    <string name="transaction_detail_payment_request_placeholder">...</string>
-
-    <string name="transaction_detail_button_copy_token">Copy Token</string>
-    <string name="transaction_detail_button_open_with">Open With...</string>
-    <string name="transaction_detail_button_delete">Delete Transaction</string>
-
-    <string name="mint_restore_name_placeholder">Mint Name</string>
-    <string name="mint_restore_status_restoring">Restoring...</string>
-    <string name="mint_restore_balance_change_placeholder">+0 sats</string>
-
-    
-    <string name="items_settings_section_title">ITEMS CATALOG</string>
-    <string name="items_settings_status_empty">No items in catalog</string>
-    <string name="items_settings_description">Manage your product catalog for quick checkout.</string>
-    <string name="items_settings_import_csv">Import CSV</string>
-    <string name="items_settings_export_csv">Export CSV</string>
-    <string name="items_settings_manage">Manage</string>
-    <string name="items_settings_clear_all">Clear All Items</string>
-
-    
-    <string name="item_list_toolbar_back">Back</string>
-    <string name="item_list_toolbar_title">Items</string>
-    <string name="item_list_add_item">Add item</string>
-    <string name="item_list_done_reordering">Done reordering</string>
-    <string name="item_list_empty_icon_description">No items</string>
-    <string name="item_list_empty_title">No Items</string>
-    <string name="item_list_empty_subtitle">Tap + to add your first item</string>
-    <string name="item_list_import_from_csv">Import from CSV</string>
-    <string name="item_list_export_to_csv">Export to CSV</string>
-    <string name="item_list_toast_exported">Catalog exported to CSV</string>
-    <string name="item_list_toast_error_exporting">Error exporting catalog</string>
-    <string name="item_list_clear_all">Clear All Items</string>
-
-    
-    <string name="item_entry_toolbar_back">Back</string>
-    <string name="item_entry_title_add">Add Item</string>
-    <string name="item_entry_title_edit">Edit Item</string>
-    <string name="item_entry_button_save">Save</string>
-    <string name="item_entry_image_description">Item image</string>
-    <string name="item_entry_image_placeholder">No image</string>
-    <string name="item_entry_button_add_photo">Add Photo</string>
-    <string name="item_entry_button_remove_photo">Remove Photo</string>
-
-    <string name="item_entry_section_basic_information">Details</string>
-    <string name="item_entry_label_name">Name</string>
-    <string name="item_entry_hint_name">e.g. Cappuccino</string>
-    <string name="item_entry_label_variation">Variation</string>
-    <string name="item_entry_hint_variation">e.g. Small, Large</string>
-    <string name="item_entry_label_description">Description</string>
-    <string name="item_entry_hint_description">Notes about this item</string>
-
-    <string name="item_entry_section_category">Category</string>
-    <string name="item_entry_hint_new_category">Category name</string>
-    <string name="item_entry_category_confirm">Confirm</string>
-    <string name="item_entry_category_cancel">Cancel</string>
-    <string name="item_entry_category_helper">Select a category or create a new one.</string>
-
-    <string name="item_entry_section_pricing">Pricing</string>
-    <string name="item_entry_price_type_fiat">Local Currency</string>
-    <string name="item_entry_price_type_bitcoin">Bitcoin</string>
-    <string name="item_entry_currency_symbol_default">$</string>
-    <string name="item_entry_hint_price_fiat">0.00</string>
-    <string name="item_entry_currency_code_default">USD</string>
-    <string name="item_entry_bitcoin_symbol">₿</string>
-    <string name="item_entry_hint_price_sats">0</string>
-    <string name="item_entry_label_sats">sats</string>
-
-    <string name="item_entry_label_apply_vat">Apply Tax (VAT)</string>
-    <string name="item_entry_label_price_includes_vat">Price includes tax</string>
-    <string name="item_entry_label_vat_rate">Tax Rate</string>
-    <string name="item_entry_hint_vat_rate">20</string>
-
-    <string name="item_entry_price_breakdown_title">Price Breakdown</string>
-    <string name="item_entry_price_breakdown_net_label">Price before tax</string>
-    <string name="item_entry_price_breakdown_net_value_default">$0.00</string>
-    <string name="item_entry_price_breakdown_vat_label">Tax (20%)</string>
-    <string name="item_entry_price_breakdown_vat_value_default">$0.00</string>
-    <string name="item_entry_price_breakdown_total_label">Customer pays</string>
-    <string name="item_entry_price_breakdown_total_value_default">$0.00</string>
-
-    <string name="item_entry_price_helper">Set a fixed price in your preferred currency. Bitcoin prices are in satoshis (sats).</string>
-
-    <string name="item_entry_section_identification">Barcode &amp; SKU</string>
-    <string name="item_entry_label_gtin">Barcode</string>
-    <string name="item_entry_hint_gtin">Scan or type barcode number</string>
-    <string name="item_entry_scan_barcode">Scan barcode</string>
-    <string name="item_entry_label_sku">SKU</string>
-    <string name="item_entry_hint_sku">Your internal product code</string>
-    <string name="item_entry_error_gtin_exists">Another item already uses this barcode</string>
-    <string name="item_entry_error_sku_exists">Another item already uses this SKU</string>
-    <string name="item_entry_error_name_required">Give your item a name</string>
-    <string name="item_entry_error_price_required">Enter a price</string>
-    <string name="item_entry_error_price_positive">Price can\'t be negative</string>
-    <string name="item_entry_error_price_decimals">Use up to 2 decimal places</string>
-    <string name="item_entry_error_sats_required">Enter a price in sats</string>
-    <string name="item_entry_error_sats_positive">Sats can\'t be negative</string>
-    <string name="item_entry_error_sats_whole_number">Sats must be a whole number</string>
-    <string name="item_entry_error_quantity_positive">Stock can\'t be negative</string>
-    <string name="item_entry_error_threshold_positive">Threshold can\'t be negative</string>
-
-    <string name="item_entry_section_inventory">Stock</string>
-    <string name="item_entry_label_track_quantity">Track Stock</string>
-    <string name="item_entry_label_current_stock">In Stock</string>
-    <string name="item_entry_hint_current_stock">0</string>
-    <string name="item_entry_label_low_stock_alert">Low Stock Alert</string>
-    <string name="item_entry_label_alert_when_below">Alert When Below</string>
-    <string name="item_entry_hint_alert_threshold">5</string>
-    <string name="item_entry_inventory_helper">Get notified when stock is running low.</string>
-
-    <string name="item_entry_button_cancel">Cancel</string>
-    <string name="item_entry_button_delete">Delete Item</string>
-    <string name="item_entry_delete_confirmation_message">This item will be permanently removed from your catalog.</string>
-    <string name="item_entry_more_details">Additional Options</string>
-    <string name="item_entry_more_details_expand">Show additional options</string>
-    <string name="item_entry_identification_helper">Optional — for items with barcodes or internal tracking codes.</string>
-    <string name="item_entry_toast_item_saved">Item saved</string>
-    <string name="item_entry_toast_item_updated">Item updated</string>
-
-    
-    <string name="item_product_drag_handle_description">Drag to reorder</string>
-    <string name="item_product_image_description">Item image</string>
-    <string name="item_product_image_placeholder">No image</string>
-    <string name="item_product_chevron_more">More</string>
-
-    
-    <string name="item_selection_image_description">Item image</string>
-    <string name="item_selection_image_placeholder">No image</string>
-    <string name="item_selection_decrease_quantity">Decrease quantity</string>
-    <string name="item_selection_increase_quantity">Increase quantity</string>
-    <string name="item_selection_variation_hint">Add custom variation...</string>
-    <string name="item_selection_add_variation">Add</string>
-    <string name="item_selection_variation_helper">Creates a new item with this variation</string>
-
-    
-    <string name="item_selection_toolbar_back">Back</string>
-    <string name="item_selection_toolbar_title">Checkout</string>
-    <string name="item_selection_search_icon_description">Search</string>
-    <string name="item_selection_search_hint">Search items...</string>
-    <string name="item_selection_scan_barcode">Scan barcode</string>
-    <string name="item_selection_clear_filters">Clear filters</string>
-
-    <string name="item_selection_empty_icon_description">No items</string>
-    <string name="item_selection_empty_title">No items found</string>
-    <string name="item_selection_empty_subtitle">Add items in Settings → Items</string>
-
-    <string name="item_selection_no_results_icon_description">No results</string>
-    <string name="item_selection_no_results_title">No matching items</string>
-    <string name="item_selection_no_results_subtitle">Try a different search term</string>
-
-    <string name="item_selection_basket_icon_description">Basket</string>
-    <string name="item_selection_basket_title">Basket</string>
-    <string name="item_selection_basket_clear">Clear</string>
-    <string name="item_selection_basket_total_label">Total</string>
-    <string name="item_selection_basket_expand">Expand basket</string>
-    <string name="item_selection_basket_collapse">Collapse basket</string>
-    <string name="item_selection_basket_item_count">%1$d item</string>
-    <string name="item_selection_basket_items_count">%1$d items</string>
-    <string name="item_selection_charge_button">Charge</string>
-    <string name="item_selection_charge_button_default">Charge</string>
-    <string name="pos_error_no_mints_configured">Add at least one mint in Settings → Mints before charging customers.</string>
-    <string name="pos_error_no_network_pending_payment">Network connection is required to open pending payments.</string>
-    <string name="pos_error_no_network_charge">Network connection is required to create a charge.</string>
-
-    <string name="item_selection_save_button">Save</string>
-    <string name="item_selection_saved_baskets_button">Saved</string>
-    <string name="item_selection_save_basket_hint">Enter a name (optional)</string>
-
-    
-    <string name="dialog_save_basket_title">Save Basket</string>
-    <string name="dialog_save_basket_subtitle">Give your basket a name to find it easily later.</string>
-    <string name="dialog_save_basket_hint">Table 5, John order, etc.</string>
-    <string name="dialog_save_basket_helper">Leave empty to use default name</string>
-    <string name="dialog_save_basket_save">Save Basket</string>
-
-    
-    <string name="dialog_rename_basket_title">Rename Basket</string>
-    <string name="dialog_rename_basket_subtitle">Update the name for this basket.</string>
-    <string name="dialog_rename_basket_hint">Enter new name</string>
-    <string name="dialog_rename_basket_save">Save Changes</string>
-    <string name="item_selection_editing_basket">Editing: %1$s</string>
-
-    
-    <string name="saved_baskets_back">Back</string>
-    <string name="saved_baskets_title">Saved Baskets</string>
-    <string name="saved_baskets_empty_icon">No saved baskets</string>
-    <string name="saved_baskets_empty_title">No saved baskets</string>
-    <string name="saved_baskets_empty_subtitle">Save a basket to keep it open for later.\nPerfect for tabs or restaurant tables.</string>
-    <string name="saved_baskets_meta_format">%1$s • %2$s</string>
-    <string name="saved_baskets_action_rename">Rename</string>
-    <string name="saved_baskets_action_delete">Delete</string>
-    <string name="saved_baskets_rename_title">Rename Basket</string>
-    <string name="saved_baskets_rename_hint">Enter basket name</string>
-    <string name="saved_baskets_delete_title">Delete Basket</string>
-    <string name="saved_baskets_delete_message">Delete \"%1$s\"? This cannot be undone.</string>
-
-    
-    <string name="basket_archive_back">Back</string>
-    <string name="basket_archive_title">Order History</string>
-    <string name="basket_archive_empty_icon">No archived orders</string>
-    <string name="basket_archive_empty_title">No completed orders</string>
-    <string name="basket_archive_empty_subtitle">Completed orders will appear here.\nPerfect for tracking sales history.</string>
-    <string name="basket_archive_paid_badge">PAID</string>
-    <string name="basket_archive_view_payment">View Payment</string>
-    <string name="basket_archive_delete">Delete</string>
-    <string name="basket_archive_delete_title">Delete Order</string>
-    <string name="basket_archive_delete_message">Delete \"%1$s\"? This cannot be undone.</string>
-    <string name="basket_archive_total_label">Total</string>
-    <string name="basket_archive_detail_title">Order Details</string>
-    <string name="saved_baskets_view_archive">Archive</string>
-    <string name="basket_archive_detail_view_payment">View Payment</string>
-
-
-    
-    <string name="common_save">Save</string>
-    <string name="common_delete">Delete</string>
-    <string name="common_confirm">Confirm</string>
-    <string name="common_undo">Undo</string>
-
-    
-    <string name="basket_names_settings_title">Basket Names</string>
-    <string name="basket_names_settings_description">Create preset names for quick basket saving.\nPerfect for restaurant tables or customer orders.</string>
-    <string name="basket_names_settings_presets_header">Preset names</string>
-    <string name="basket_names_settings_empty_title">No preset names</string>
-    <string name="basket_names_settings_empty_subtitle">Add names for quick basket saving</string>
-    <string name="basket_names_settings_add_name">Add Name</string>
-    <string name="basket_names_settings_examples">Examples: Table 1, Table 2, VIP, Takeout, John\'s Order</string>
-    <string name="basket_names_settings_clear_all">Clear All Names</string>
-
-    
-    <string name="basket_names_dialog_add_title">Add Preset Name</string>
-    <string name="basket_names_dialog_add_subtitle">Create a quick-select name for baskets</string>
-    <string name="basket_names_dialog_add_hint">e.g. Table 1</string>
-    <string name="basket_names_dialog_add_save">Add Name</string>
-
-    <string name="basket_names_dialog_edit_title">Edit Name</string>
-    <string name="basket_names_dialog_edit_subtitle">Update the preset name</string>
-    <string name="basket_names_dialog_edit_hint">Enter name</string>
-    <string name="basket_names_dialog_edit_save">Save Changes</string>
-
-    <string name="basket_names_dialog_add_button">Add Name</string>
-    <string name="basket_names_dialog_edit_button">Save Changes</string>
-
-    <string name="basket_names_dialog_delete_title">Delete Name</string>
-    <string name="basket_names_dialog_delete_message">Remove \"%1$s\" from presets?</string>
-
-    <string name="basket_names_dialog_clear_all_title">Clear All Names</string>
-    <string name="basket_names_dialog_clear_all_message">Remove all preset names? This cannot be undone.</string>
-    <string name="basket_names_dialog_clear_all_confirm">Clear All</string>
-
-    
-    <string name="basket_names_error_empty">Please enter a name</string>
-    <string name="basket_names_error_duplicate">This name already exists</string>
-
-    
-    <plurals name="saved_baskets_item_count">
-        <item quantity="one">%1$d item</item>
-        <item quantity="other">%1$d items</item>
+    <!-- Collections -->
+    <string name="collections_add">Find a collection</string>
+    <string name="collections_chosen">On the door</string>
+    <string name="collections_mine">Made by you</string>
+    <string name="collections_added">Doors you keep</string>
+    <string name="collections_count">%1$d of %2$d in</string>
+    <string name="collection_search">Collection name or link</string>
+    <string name="collection_paste">Paste</string>
+    <string name="collection_added">Added</string>
+    <string name="collection_looking">Looking on %s…</string>
+    <string name="collection_popular">Popular on %s</string>
+    <string name="collection_matches">Found on %s</string>
+    <string name="collection_none">No collection is called “%s”. Paste the link to it instead.</string>
+    <string name="collection_no_site">Couldn\'t reach %s. Check your connection and try again.</string>
+    <string name="collection_reading">Loading the collection from %s…</string>
+    <string name="collection_at_address">At this link</string>
+    <string name="collection_unreachable">No collection found at this link. Check the link and your connection.</string>
+    <string name="collection_other_site">This door admits only collections on %s.</string>
+    <plurals name="collection_holds">
+        <item quantity="one">%d NFT</item>
+        <item quantity="other">%d NFTs</item>
     </plurals>
 
-    
-    <string name="auto_withdraw_title">Withdrawals</string>
-    <string name="auto_withdraw_hero_label">AUTO-WITHDRAW</string>
-    <string name="auto_withdraw_hero_title">Auto-Withdraw</string>
-    <string name="auto_withdraw_hero_subtitle">Automatically send funds to your Lightning wallet when balance exceeds a threshold</string>
-    <string name="auto_withdraw_hero_helper">Set a payout threshold and lightning address to automatically withdraw when your balance reaches the limit.</string>
-    <string name="auto_withdraw_status_active">Active</string>
-    <string name="auto_withdraw_status_inactive">Inactive</string>
-    
-    <string name="auto_withdraw_enable_title">Auto-Withdraw</string>
-    <string name="auto_withdraw_enable_subtitle">Automatically withdraw when balance exceeds threshold</string>
-    
-    <string name="auto_withdraw_section_destination">Destination</string>
-    <string name="auto_withdraw_section_trigger">Trigger Settings</string>
-    <string name="auto_withdraw_section_config">CONFIGURATION</string>
-    <string name="auto_withdraw_lightning_address_label">Lightning Address</string>
-    <string name="auto_withdraw_lightning_address_hint">you@wallet.com</string>
-    <string name="auto_withdraw_lightning_address_helper">Funds will be sent to this address automatically</string>
-    <string name="auto_withdraw_lightning_address_valid">Valid Lightning address</string>
-    <string name="auto_withdraw_lightning_address_invalid">Invalid Lightning address</string>
-    <string name="auto_withdraw_lightning_address_checking">Checking address...</string>
-    
-    <string name="auto_withdraw_threshold_title">Balance Threshold</string>
-    <string name="auto_withdraw_threshold_subtitle">Trigger when balance exceeds</string>
-    <string name="auto_withdraw_threshold_label">Threshold</string>
-    <string name="auto_withdraw_threshold_hint">Trigger withdrawal when balance reaches this amount</string>
-    <string name="auto_withdraw_threshold_helper">Min: ₿1,000 • Max: ₿1,000,000</string>
-    <string name="auto_withdraw_threshold_helper_dynamic">Min: %1$s • Max: ₿1,000,000</string>
-    
-    <string name="auto_withdraw_percentage_title">Withdraw Amount</string>
-    <string name="auto_withdraw_percentage_subtitle">Percentage of balance to send</string>
-    <string name="auto_withdraw_percentage_label">Withdraw Percentage</string>
-    <string name="auto_withdraw_percentage_hint">Percentage of balance to withdraw (keep some for fees)</string>
-    
-    <string name="auto_withdraw_section_history">Recent Activity</string>
-    <string name="auto_withdraw_see_all">See All</string>
-    <string name="auto_withdraw_history_empty">No withdrawals yet</string>
-    <string name="auto_withdraw_history_empty_title">No withdrawals yet</string>
-    <string name="auto_withdraw_history_empty_subtitle">When auto-withdraw is enabled, your payments are sent to your wallet automatically. Activity will show here.</string>
-    
-    <string name="auto_withdraw_status_completed">Sent</string>
-    <string name="auto_withdraw_status_pending">Pending</string>
-    <string name="auto_withdraw_status_failed">Failed</string>
-    
-    <string name="auto_withdraw_progress_started">Auto-withdrawing...</string>
-    <string name="auto_withdraw_progress_quote">Getting quote...</string>
-    <string name="auto_withdraw_progress_sending">Sending to wallet...</string>
-    <string name="auto_withdraw_progress_completed">Sent successfully!</string>
-    <string name="auto_withdraw_progress_failed">Withdrawal failed</string>
-    
-    <string name="auto_withdraw_settings_title">Withdraw</string>
-    <string name="auto_withdraw_error_title">Error Details</string>
+    <!-- A collection\'s NFTs -->
+    <string name="tickets_all">All</string>
+    <string name="tickets_admitted">Admitted</string>
+    <string name="tickets_in">In · %d</string>
+    <string name="tickets_not_in">Not in · %d</string>
+    <string name="tickets_listed_count">Listed · %d</string>
+    <string name="tickets_sold_count">Sold · %d</string>
+    <string name="tickets_listed">Listed</string>
+    <string name="tickets_yours">Yours</string>
+    <string name="tickets_none_listed">Nothing is listed for sale.</string>
+    <string name="tickets_none_sold">Nothing has been sold or sent yet.</string>
+    <string name="tickets_when">%1$s · %2$s</string>
+    <string name="tickets_none">No NFTs in this collection yet.\nPull down to refresh.</string>
+    <string name="tickets_search">Search by name or number</string>
+    <string name="tickets_none_found">Nothing in this collection matches.</string>
+    <string name="tickets_none_admitted">Nobody admitted yet.</string>
+    <string name="tickets_none_waiting">Everyone has been admitted.</string>
+    <string name="tickets_not_read">Couldn\'t refresh. This is the saved list: check your connection and pull down again.</string>
 
-    
-    <string name="settings_item_withdrawals_title">Withdrawals</string>
-    <string name="settings_item_withdrawals_subtitle">Auto-withdraw settings and history</string>
-    <string name="settings_item_default_payment_method_title">Default Payment</string>
-    <string name="settings_item_default_payment_method_subtitle">Unified</string>
-    <string name="default_payment_method_explainer_title">Quick Settings</string>
-    <string name="default_payment_method_explainer_body">You can quickly change the default payment method directly from the payment screen by long-pressing on any of the Unified, Cashu, or Lightning tabs.</string>
-    <string name="default_payment_method_section_options">Default QR code</string>
-    <string name="default_payment_method_option_unified">Unified (Cashu + Lightning)</string>
-    <string name="default_payment_method_option_cashu">Cashu</string>
-    <string name="default_payment_method_option_lightning">Lightning</string>
+    <!-- What the door decided -->
+    <plurals name="result_admitted_count">
+        <item quantity="one">%d admitted</item>
+        <item quantity="other">%d admitted</item>
+    </plurals>
+    <string name="result_already_in">Already in</string>
+    <string name="result_refused">Refused</string>
+    <string name="result_waiting">Not yet in</string>
+    <string name="result_yours">Yours to send or sell</string>
+    <string name="result_out">Sent or sold</string>
+    <string name="result_hand">Sell or send</string>
+    <string name="result_at">%1$s · %2$s</string>
+    <string name="result_welcome">Welcome, %s</string>
+    <string name="result_group">A group of %d</string>
+    <string name="result_group_help">%s. Tap a picture for its details.</string>
+    <string name="result_count_admitted">%d admitted</string>
+    <string name="result_count_already_in">%d already in</string>
+    <string name="result_count_refused">%d refused</string>
+    <string name="result_came_in">Admitted %s</string>
+    <string name="result_just_now">a moment ago</string>
+    <string name="result_came_in_at">%1$s was admitted at %2$s, %3$s. A ticket admits one person, once.</string>
+    <string name="result_picture">The NFT\'s picture</string>
+    <string name="result_details">Details</string>
+    <string name="result_picture_back">Back to picture</string>
+    <string name="result_next">Next guest</string>
+    <string name="result_next_in">Next guest in %d s</string>
+    <string name="result_done">Done</string>
+    <plurals name="result_undo">
+        <item quantity="one">Undo</item>
+        <item quantity="other">Undo all %d</item>
+    </plurals>
+    <string name="result_admit">Mark admitted</string>
+    <string name="result_by_hand">%s, not scanned</string>
+    <string name="refused_not_valid">Not a valid ticket</string>
+    <string name="refused_not_valid_why">This ticket could not be confirmed. Ask the guest to try again.</string>
+    <string name="refused_not_owner">Not theirs any more</string>
+    <string name="refused_not_owner_why">This NFT has been sent, sold or removed since. Whoever owns it now can be admitted with it.</string>
+    <string name="refused_not_issued">Not from this collection</string>
+    <string name="refused_not_issued_why">This is a real NFT, but not from %s. This door admits only that collection.</string>
+    <string name="refused_not_issued_other">This NFT is from %1$s, and this door is admitting %2$s. Open that collection\'s door to admit it.</string>
+    <string name="refused_not_checked">Could not check</string>
+    <string name="refused_not_checked_why">%s did not respond, so nobody was admitted. Ask the guest to try again.</string>
 
-    
-    <string name="manual_withdraw_section_title">Manual Withdraw</string>
-    <string name="manual_withdraw_title">Withdraw Now</string>
-    <string name="manual_withdraw_subtitle">Send funds to Lightning invoice or address</string>
-    <string name="manual_withdraw_select_mint">Select Mint</string>
-    <string name="manual_withdraw_no_balance">No balance available to withdraw. Add funds to your wallet first.</string>
+    <!-- Details -->
+    <string name="details_status">Status</string>
+    <string name="details_admitted">Admitted at %1$s, %2$s</string>
+    <string name="details_holder">Guest</string>
+    <string name="details_collection">Collection</string>
+    <string name="details_listed">Title</string>
+    <string name="details_owner">Owner</string>
+    <string name="details_kept">The collection, when last refreshed</string>
+    <string name="details_passed_on">Sent or sold to a guest</string>
+    <string name="details_minted">Minted</string>
+    <string name="details_picture">Picture</string>
+    <string name="details_site">Site</string>
+    <string name="details_hash">NFT ID</string>
+    <string name="details_kind">Kind</string>
+    <string name="details_number">Number</string>
+    <string name="details_edition">Edition</string>
+    <string name="details_yes">Yes</string>
+    <string name="details_no">No</string>
+    <string name="details_link">Link</string>
 
-    
-    <string name="mints_settings_balance_label">Balance</string>
+    <!-- Creating a collection and minting -->
+    <string name="make_title">Create a collection</string>
+    <string name="make_name">Collection name</string>
+    <string name="make_sample">Your event</string>
+    <string name="make_preview">Preview</string>
+    <string name="make_kind">Ticket type, such as VIP</string>
+    <string name="make_add_kind">Add ticket type</string>
+    <string name="make_kind_any">Kind, such as Rare</string>
+    <string name="make_add_kind_any">Add kind</string>
+    <string name="make_fewer">One fewer</string>
+    <string name="make_more">One more</string>
+    <string name="make_guest">Guest\'s name (optional)</string>
+    <string name="make_photo">Add photo</string>
+    <string name="make_photo_chosen">Photo added</string>
+    <string name="make_own">Add your own</string>
+    <plurals name="make_button">
+        <item quantity="one">Mint %d NFT</item>
+        <item quantity="other">Mint %d NFTs</item>
+    </plurals>
+    <string name="make_none">Enter how many to mint</string>
+    <string name="make_unnamed">Give the collection a name first.</string>
+    <string name="make_help">Each NFT is drawn on this phone and minted on %s.</string>
+    <string name="make_help_issue">%1$d minted so far. The next is number %2$d.</string>
+    <string name="make_preview_failed">This template couldn\'t draw a preview. Choose another, or fix the script. (%s)</string>
+    <string name="make_creating">Creating the collection on %s…</string>
+    <string name="make_drawing">Drawing %1$d of %2$d…</string>
+    <string name="make_minting">Minting %1$d of %2$d on %3$s…</string>
+    <plurals name="make_done">
+        <item quantity="one">%d NFT minted. Tap it to sell or send it.</item>
+        <item quantity="other">%d NFTs minted. Tap one to sell or send it.</item>
+    </plurals>
+    <string name="make_failed">Minting stopped after %1$d. %2$s Tap Continue to mint the rest.</string>
+    <string name="make_again">Continue</string>
+    <string name="make_finish">Done</string>
+    <string name="make_stop">Stop</string>
+    <string name="own_title">Your own template</string>
+    <string name="own_help">A template is a script that draws one picture for each NFT, tickets or anything else. Copy the instructions, give them to an AI with a description of what you want, and paste what it writes. A script cannot touch the collection or its key, but it does see what it draws, including a guest\'s name and photo, so paste only one you trust.</string>
+    <string name="own_name">Template name</string>
+    <string name="own_scene">Paste the script here</string>
+    <string name="own_brief">Copy instructions</string>
+    <string name="own_copied">Instructions copied.</string>
+    <string name="own_save">Add template</string>
 
-    
-    <string name="mint_selection_title">Select Mint</string>
-    <string name="mint_selection_subtitle">Choose which mint to withdraw from</string>
-    <string name="mint_selection_icon_description">Mint icon</string>
-    <string name="mint_selection_select_description">Select this mint</string>
+    <!-- Selling or sending one NFT to the guest at the door -->
+    <string name="hand_which">Which ticket type?</string>
+    <plurals name="hand_left">
+        <item quantity="one">%d left</item>
+        <item quantity="other">%d left</item>
+    </plurals>
+    <string name="hand_none_left">None left · mint one</string>
+    <string name="hand_left_price">%1$s · %2$s sats</string>
+    <string name="hand_ways">Sell this NFT to the guest in front of you at its price, or send it free.</string>
+    <string name="hand_give">Send free</string>
+    <string name="hand_sell">Sell for %s sats</string>
+    <string name="hand_sell_help">The guest scans this with their phone and pays. They get the NFT as you get the sats: both happen, or neither.</string>
+    <string name="hand_listing">Listing for sale…</string>
+    <string name="hand_paid">Sold for %1$s sats.\n%2$s owns it now.</string>
+    <string name="hand_buyer">The guest</string>
+    <string name="hand_help">The guest scans this with their phone and the NFT becomes theirs. Whoever scans it first gets it.</string>
+    <string name="hand_code">Code that sends this NFT</string>
+    <string name="hand_taken">Sent.\nIt\'s theirs now.</string>
+    <string name="hand_done_help">They can come in with it now: have them hold their phone to the door, or admit them here.</string>
+    <string name="hand_making">Creating a link…</string>
+    <string name="hand_failed">Couldn\'t create the link. %s</string>
+    <string name="hand_unlisted">Couldn\'t list this NFT for sale. %s</string>
+    <string name="hand_share">Share link</string>
+    <string name="hand_admit">Mark admitted</string>
 
-    
-    <string name="withdraw_invoice_card_title">Lightning Invoice</string>
-    <string name="withdraw_invoice_card_subtitle">Paste an invoice to pay instantly</string>
-    <string name="withdraw_address_card_title">Lightning Address</string>
-    <string name="withdraw_address_card_subtitle">Send to an email-like address</string>
-    <string name="withdraw_invoice_placeholder">lnbc1...</string>
-    <string name="withdraw_amount_placeholder">Enter amount in sats</string>
-    <string name="withdraw_continue_button">Continue</string>
-    <string name="withdraw_scan_qr">Scan QR</string>
-    <string name="withdraw_scan_invoice_button">Scan Invoice</string>
-    <string name="withdraw_invoice_helper">Enter a BOLT11 lightning invoice</string>
-    <string name="withdraw_address_helper">Send to an email-like lightning address</string>
-    <string name="withdraw_section_send_to">Send To</string>
-    <string name="withdraw_balance_available">Available: %1$s</string>
+    <!-- Prices -->
+    <string name="prices_title">Prices</string>
+    <string name="prices_selling">Sell on %s</string>
+    <string name="prices_now">Today</string>
+    <string name="prices_free">Not for sale</string>
+    <string name="prices_sats">sats</string>
+    <string name="prices_from">From %s</string>
+    <string name="prices_add">Add price change</string>
+    <string name="prices_apply">Apply now</string>
+    <string name="prices_remove">Remove price change</string>
+    <string name="prices_by_itself">Sell automatically</string>
+    <string name="prices_by_itself_help">While this app is open, it applies price changes on their date and accepts every payment of the full price. When off, you apply price changes yourself, and payments wait for you on the site.</string>
+    <string name="prices_paid_in">Receive payments at</string>
+    <string name="prices_test_mint">Testnut (test sats)</string>
+    <string name="prices_dev_mint">Local test mint (test sats)</string>
+    <string name="prices_saved">Saved.</string>
+    <string name="prices_opening">Listing NFTs for sale…</string>
+    <string name="prices_problem">Couldn\'t update listings: %s</string>
+    <plurals name="prices_on_sale">
+        <item quantity="one">%d for sale</item>
+        <item quantity="other">%d for sale</item>
+    </plurals>
+    <string name="prices_sold">%1$d sold for %2$s sats</string>
+    <plurals name="prices_waiting">
+        <item quantity="one">%d payment to accept on the site</item>
+        <item quantity="other">%d payments to accept on the site</item>
+    </plurals>
+    <string name="prices_next">Prices change on %s</string>
+    <string name="prices_resold">For sale by guests</string>
+    <string name="prices_resold_by">%1$s sats · listed by %2$s</string>
+    <string name="prices_buy_back">Buy back</string>
+    <string name="prices_offered">Offer sent. The NFT comes back when %s accepts.</string>
+    <string name="prices_offer_failed">Couldn\'t make the offer. %s</string>
+    <string name="prices_cash_out">Move %s sats to your wallet</string>
 
-    <string name="withdraw_tab_lightning">Lightning</string>
-    <string name="withdraw_tab_cashu">Cashu Token</string>
-    
-    <string name="withdraw_cashu_amount_card_title">Amount</string>
-    <string name="withdraw_cashu_amount_card_subtitle">Enter amount to create token</string>
-    <string name="withdraw_cashu_create_button">Create Token</string>
-    <string name="withdraw_cashu_result_title">Cashu Token</string>
-    <string name="withdraw_cashu_result_subtitle">Share this token to withdraw</string>
-    <string name="withdraw_cashu_copy_token">Copy Token</string>
-    <string name="withdraw_cashu_copied">Token copied to clipboard</string>
-    <string name="withdraw_cashu_creating">Creating token...</string>
-    <string name="withdraw_animated_qr_speed_slow">Slow</string>
-    <string name="withdraw_animated_qr_speed_normal">Normal</string>
-    <string name="withdraw_animated_qr_speed_fast">Fast</string>
+    <!-- Deleting a collection -->
+    <string name="delete_label">Delete collection</string>
+    <string name="delete_title">Delete %s?</string>
+    <string name="delete_help">The %1$d of its %2$d NFTs it still holds are burned at the mint and removed from %3$s, with their pictures. The %4$d already sent or sold stay with their owners. The site can\'t remove a collection, so its name there becomes [deleted]. This can\'t be undone.</string>
+    <string name="delete_hold">Hold to delete</string>
+    <string name="delete_keep">Keep it</string>
+    <string name="delete_unlisting">Taking it off sale…</string>
+    <string name="delete_unlisted">Taken %d off sale…</string>
+    <string name="delete_burning">Burning %1$d of %2$d…</string>
+    <plurals name="delete_done">
+        <item quantity="one">Deleted. %d NFT burned.</item>
+        <item quantity="other">Deleted. %d NFTs burned.</item>
+    </plurals>
+    <string name="delete_partly">%1$d burned, %2$d could not be. %3$s Hold again to try the rest.</string>
+    <string name="delete_unsure">%d burned. The site could not be read afterwards, so the collection is kept here. Hold again to finish.</string>
+    <string name="delete_money">This collection still holds sats. Move them to your wallet first: Wallet, then Earned by your collections.</string>
+    <string name="delete_remove_title">Remove %s?</string>
+    <string name="delete_remove_help">It was only added to this phone, to keep a door for it. Its NFT list and admission record are deleted from this phone. Nothing changes on the site.</string>
+    <string name="delete_remove_hold">Hold to remove</string>
+    <string name="delete_removed">Removed from this phone.</string>
 
-    
-    <string name="qr_scanner_title">Scan QR Code</string>
-    <string name="qr_scanner_instruction">Point camera at QR code</string>
-    <string name="qr_scanner_permission_required">Camera permission is required to scan QR codes</string>
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_mint">Mint more NFTs</string>
+    <string name="settings_prices_selling">For sale on the site</string>
+    <string name="settings_prices_set">Priced, not for sale</string>
+    <string name="settings_prices_none">Not priced</string>
+    <string name="settings_door">Door name</string>
+    <string name="settings_door_default">Door</string>
+    <string name="settings_relays">Relays (debug builds only)</string>
+    <string name="settings_site">Site to search (debug builds only)</string>
+    <string name="settings_sound">Play a sound for each result</string>
+    <string name="settings_express">Return to the door automatically</string>
+    <string name="settings_save">Save</string>
+    <string name="settings_clear_title">Reset admissions?</string>
+    <string name="settings_clear_message">Every NFT in this collection can be admitted again. This can\'t be undone.</string>
+    <string name="settings_clear_confirm">Reset</string>
+    <string name="settings_key">Copy backup key</string>
+    <string name="settings_key_title">Copy backup key?</string>
+    <string name="settings_key_message">This phone created the collection, and only this phone holds its key. Whoever has the key can send every NFT the collection still holds and mint more. Keep a copy somewhere safe: with it, the collection can be opened on %s from any browser, and without it the collection is lost with this phone.</string>
+    <string name="settings_key_confirm">Copy</string>
+    <string name="settings_key_copied">Key copied. Paste it somewhere safe.</string>
+    <string name="settings_key_failed">Couldn\'t copy the key: %s</string>
+    <string name="settings_remove">Remove from this phone</string>
 
-    
-    <string name="mints_explore_title">Mints</string>
-    <string name="mints_total_balance">Total Balance</string>
-    <string name="mints_your_mints">Your Mints</string>
-    <string name="mints_add_new_mint">Add New Mint</string>
-    <string name="mints_enter_url">Enter mint URL or scan QR code</string>
-    <string name="mints_url_hint">https://mint.example.com</string>
-    <string name="mints_add_button">Add Mint</string>
-    <string name="mints_scan_qr">Scan QR</string>
-    <string name="mints_scan_mint_qr">Scan Mint QR</string>
-    <string name="mints_scan_instruction">Point camera at mint QR code</string>
-    <string name="mints_empty_title">No Mints</string>
-    <string name="mints_empty_subtitle">Add a mint to get started with ecash</string>
-    <string name="mints_remove_title">Remove Mint</string>
-    <string name="mints_remove_message">Remove %1$s? Any balance in this mint will be lost.</string>
-    <string name="mints_remove_confirm">Remove</string>
-    <string name="mints_removed_toast">Mint removed</string>
-    <string name="mints_already_exists">This mint is already added</string>
-    <string name="mints_invalid_url">Invalid mint URL. Please check and try again.</string>
-    <string name="mints_added_toast">Mint added</string>
-    <string name="mints_reset_title">Reset Mints</string>
-    <string name="mints_reset_message">Reset to default mints? This will remove all custom mints.</string>
-    <string name="mints_reset_confirm">Reset</string>
-    <string name="mints_reset_toast">Mints reset to defaults</string>
-    <string name="mints_reset_description">Reset to defaults</string>
-    <string name="mint_icon_description">Mint icon</string>
-    <string name="mint_selected_description">Selected</string>
-    <string name="mint_remove_description">Remove mint</string>
+    <!-- Welcome: the one thing asked before the app is used -->
+    <string name="welcome_title">What should we call you?</string>
+    <string name="welcome_another">Name the new account</string>
+    <string name="welcome_help">Hold NFTs and tickets, buy and sell them, and make collections of your own. It starts with a name.</string>
+    <string name="welcome_name">Your name</string>
+    <string name="welcome_name_help">Doors greet you by it and buyers see it. It is public, and you can change it later.</string>
+    <string name="welcome_kept">Everything this phone already holds, its NFTs, its collections and its sats, stays with this account.</string>
+    <string name="welcome_go">Continue</string>
+    <string name="welcome_restore">I have a backup key</string>
+    <string name="welcome_restore_help">Paste the key you copied from an account\'s settings. Its NFTs and its wallet come back with it. Collections it made have keys of their own.</string>
+    <string name="welcome_restore_hint">Backup key, 64 letters and digits</string>
+    <string name="welcome_restore_go">Restore</string>
+    <string name="welcome_restoring">Restoring…</string>
+    <string name="welcome_restored">Restored account</string>
 
-    <plurals name="mints_count">
-        <item quantity="one">%1$d mint</item>
-        <item quantity="other">%1$d mints</item>
+    <!-- Home: an account's three things -->
+    <string name="home_nfts">NFTs</string>
+    <string name="home_collections">Collections</string>
+    <string name="home_wallet">Wallet</string>
+    <string name="home_add_door">Add a door</string>
+    <string name="home_create">Create</string>
+    <string name="home_no_collections">No collections yet</string>
+    <string name="home_no_collections_help">Create one and mint its NFTs here, or add a collection somebody else made to keep a door for it.</string>
+    <string name="home_collection_yours">%1$d NFTs · %2$d sold or sent</string>
+    <string name="home_on_sale">On sale</string>
+
+    <!-- Accounts -->
+    <string name="accounts_title">Accounts</string>
+    <string name="accounts_help">Each has its own NFTs, wallet and collections. Nothing is shared between them.</string>
+    <string name="accounts_new">New account</string>
+    <string name="accounts_has">%1$s · %2$s</string>
+    <plurals name="accounts_collections">
+        <item quantity="one">%d collection</item>
+        <item quantity="other">%d collections</item>
     </plurals>
 
-    
-    <string name="mints_lightning_mint">Lightning Mint</string>
-    <string name="mints_all_mints">All Mints</string>
-    <string name="mints_balance">Balance</string>
-    <string name="mints_lightning_description">All Lightning payments will be received to this mint. Tap any mint below to set it as your Lightning mint.</string>
-    <string name="mints_set_as_lightning">Set as Lightning Mint</string>
-    <string name="mints_lightning_changed">Lightning mint updated</string>
+    <!-- Wallet -->
+    <string name="wallet_sats">sats</string>
+    <string name="wallet_test_sats">test sats</string>
+    <string name="wallet_test">test</string>
+    <string name="wallet_worthless">Worth nothing</string>
+    <string name="wallet_at">at %s</string>
+    <string name="wallet_locked">%s locked in a sale</string>
+    <string name="wallet_pending">%s on its way</string>
+    <string name="wallet_reading">Reading your wallet…</string>
+    <string name="wallet_recent">Recent</string>
+    <string name="wallet_when">%1$s · %2$s</string>
+    <string name="wallet_was_added">Added · Lightning</string>
+    <string name="wallet_was_received">Received · ecash</string>
+    <string name="wallet_was_paid">Paid · Lightning</string>
+    <string name="wallet_was_sent">Sent · ecash</string>
+    <string name="wallet_earned">Earned by your collections</string>
+    <string name="wallet_earned_out">Taken out, not yet in your wallet</string>
+    <string name="wallet_move">Move to wallet</string>
+    <string name="wallet_move_spent">The mint says the ecash taken out of %s has been taken in already, most likely by a move that was cut short. If the sats are in your wallet, the copy kept here is no longer needed.</string>
+    <string name="wallet_moving">Moving…</string>
+    <string name="wallet_moved">%1$s sats from %2$s are in your wallet.</string>
+    <string name="wallet_move_failed">Couldn\'t take the sats out of %s. Nothing moved.</string>
+    <string name="wallet_move_kept">The sats left the collection but aren\'t in your wallet yet: %s They are kept safe here. Tap Move to wallet to finish.</string>
+    <string name="wallet_receive">Receive</string>
+    <string name="wallet_receive_help">Into your wallet at %s. Make an invoice to pay from any Lightning wallet, or paste ecash you were sent.</string>
+    <string name="wallet_receive_test">Into your wallet at %s, as test sats worth nothing. They arrive by themselves.</string>
+    <string name="wallet_paste">Paste ecash</string>
+    <string name="wallet_paste_none">There is no ecash on the clipboard. Copy the token first.</string>
+    <string name="wallet_invoice">Create invoice</string>
+    <string name="wallet_invoice_making">Creating…</string>
+    <string name="wallet_invoice_help">Pay this invoice from any Lightning wallet. The sats arrive at %s.</string>
+    <string name="wallet_invoice_hint">Lightning invoice</string>
+    <string name="wallet_waiting">Waiting for payment…</string>
+    <string name="wallet_copy">Copy</string>
+    <string name="wallet_copied">Copied.</string>
+    <string name="wallet_received">Received</string>
+    <string name="wallet_received_at">%1$s sats are in your wallet at %2$s.</string>
+    <string name="wallet_ecash">Ecash for you</string>
+    <string name="wallet_ecash_taking">Receiving…</string>
+    <string name="wallet_ecash_failed">Ecash not received</string>
+    <string name="wallet_send">Send</string>
+    <string name="wallet_send_help">You have %1$s sats at %2$s. Pay a Lightning invoice, or take sats out as ecash to hand to somebody.</string>
+    <string name="wallet_send_none">There is nothing here to send. Choose a mint that holds sats, or receive some first.</string>
+    <string name="wallet_as_ecash">As ecash</string>
+    <string name="wallet_pay_invoice">Pay invoice</string>
+    <string name="wallet_ecash_help">Ecash is a token: whoever has it has the sats. Say how many, or leave it empty to take everything.</string>
+    <string name="wallet_ecash_hint">How many sats (all %s)</string>
+    <string name="wallet_ecash_make">Take out</string>
+    <string name="wallet_ecash_making">Taking out…</string>
+    <string name="wallet_too_much">You have %s sats here.</string>
+    <string name="wallet_ecash_out">Ecash, out of your wallet</string>
+    <string name="wallet_ecash_out_help">These sats are no longer in your wallet. This token is all there is of them: scan it or paste it into a Cashu wallet. It is kept here until you say you have it.</string>
+    <string name="wallet_ecash_have">I have it</string>
+    <string name="wallet_ecash_first">Ecash you took out earlier is still kept here. Put it in a wallet and say you have it before taking out more.</string>
+    <string name="wallet_ecash_delete">Hold to delete this copy</string>
+    <string name="wallet_just_now">Just now</string>
+    <string name="wallet_under_way">%s · not settled yet</string>
+    <string name="wallet_pay_pending">On its way</string>
+    <string name="wallet_pay_pending_help">The mint is still paying it. It shows under Recent when it has, or the sats come back.</string>
+    <string name="wallet_pay_outside">An invoice was opened with this app. Check what it would cost before paying anything.</string>
+    <string name="wallet_ecash_sure">Delete this copy?</string>
+    <string name="wallet_ecash_sure_help">If the token isn\'t safely in another wallet, the sats are lost.</string>
+    <string name="wallet_pay_help">From your wallet at %s. Paste the invoice; you see what it costs before anything is paid.</string>
+    <string name="wallet_pay_check">Check</string>
+    <string name="wallet_pay_checking">Checking…</string>
+    <string name="wallet_pay_fee">Fee up to %1$s sats, paid from %2$s. Nothing is paid until you press Pay.</string>
+    <string name="wallet_pay">Pay %s sats</string>
+    <string name="wallet_pay_failed">Not paid</string>
+    <string name="wallet_paid">Paid</string>
+    <string name="wallet_paid_help">%s sats sent over Lightning.</string>
 
-    
-    <string name="mints_swap_unknown_mints_title">Accept unknown mints</string>
-    <string name="mints_swap_unknown_mints_subtitle">
-        When enabled, tokens from unknown mints are automatically swapped into your Lightning mint.
-    </string>
+    <!-- A collection\'s own page -->
+    <string name="collection_more">More</string>
+    <string name="collection_open_door">Open door</string>
+    <string name="collection_clear">Reset admissions</string>
+    <string name="collection_sold">%d sold or sent</string>
+    <plurals name="collection_admitted">
+        <item quantity="one">%d admitted</item>
+        <item quantity="other">%d admitted</item>
+    </plurals>
+    <string name="door_title">Door</string>
+    <string name="door_close">Close the door</string>
 
-    
-    <string name="cd_mint_icon">Mint icon</string>
-    <string name="cd_mint_selected">Selected as Lightning mint</string>
-    <string name="cd_edit">Edit</string>
-    <string name="cd_delete">Delete</string>
-    <string name="cd_restore_success">Wallet restored successfully</string>
-    <string name="cd_scan_qr">Scan QR code</string>
-    <string name="cd_qr_code">QR code</string>
-    <string name="cd_transaction_status">Transaction status</string>
+    <!-- Settings -->
+    <string name="settings_account">Account</string>
+    <string name="settings_name">Name</string>
+    <string name="settings_doors">Doors on this phone</string>
+    <string name="settings_delete">Delete</string>
+    <string name="settings_delete_account">Delete %s…</string>
+    <string name="settings_delete_all">Delete everything…</string>
 
-    
-    <string name="mint_action_info">Info</string>
-    <string name="mint_action_delete">Delete</string>
-    <string name="mints_add_section">Add Mint</string>
-
-    
-    <string name="mint_details_title">Mint Details</string>
-    <string name="mint_details_about">About</string>
-    <string name="mint_details_announcement">Announcement</string>
-    <string name="mint_details_contact">Contact</string>
-    <string name="mint_details_details">Details</string>
-    <string name="mint_details_actions">Actions</string>
-    <string name="mint_details_url">URL</string>
-    <string name="mint_details_software">Software</string>
-    <string name="mint_details_version">Version</string>
-    <string name="mint_details_features">Features</string>
-    <string name="mint_details_copy_url">Copy Mint URL</string>
-    <string name="mint_details_delete">Delete Mint</string>
-    <string name="mint_details_copied">Copied to clipboard</string>
-    <string name="mint_details_copy">Copy</string>
-    <string name="mint_details_fetch_error">Unable to fetch mint info</string>
-    <string name="common_retry">Retry</string>
-
-    <string name="mint_details_software_value">Software: %1$s</string>
-    <string name="mint_details_version_value">Version: %1$s</string>
-    <string name="mint_details_software_unknown">Software: Unknown</string>
-    <string name="mint_details_version_unknown">Version: Unknown</string>
-
-    
-    <string name="developer_error_logs_entry_details_title">Error Details</string>
-    <string name="developer_error_logs_entry_copy">Copy Entry</string>
-    <string name="developer_error_logs_clear_dialog_title">Clear Error Logs</string>
-    <string name="developer_error_logs_clear_dialog_message">Clear all stored error logs? This cannot be undone.</string>
-
-    <string name="history_dialog_dont_show_again">"Don't show in the future"</string>
-    <string name="history_dialog_pending_delete_title">"Delete Pending Payment?"</string>
-    <string name="history_dialog_pending_delete_message">"You won't be able to recover funds sent to this request if you delete it."</string>
-
-    <!-- PIN Setup Screen -->
-    <string name="pin_setup_create_title">Create a PIN</string>
-    <string name="pin_setup_new_pin_title">New PIN</string>
-    <string name="pin_setup_create_subtitle">Choose a 4–16 digit PIN to protect sensitive settings</string>
-    <string name="pin_setup_confirm_title">Confirm PIN</string>
-    <string name="pin_setup_confirm_subtitle">Re-enter your PIN to confirm</string>
-    <string name="pin_setup_digits">%d digits</string>
-    <string name="pin_setup_continue">Continue</string>
-    <string name="pin_setup_back">Back</string>
-    <string name="pin_setup_enter_at_least">Enter at least %d digits</string>
-    <string name="pin_setup_more_needed">%1$d digit%2$s · %3$d more needed</string>
-    <string name="pin_setup_set_pin">Set PIN</string>
-
-    <!-- PIN Entry Screen -->
-    <string name="pin_entry_title">Enter PIN</string>
-    <string name="pin_entry_subtitle">Enter your PIN to continue</string>
-    <string name="pin_entry_forgot">Forgot PIN?</string>
-    <string name="pin_entry_too_many_attempts">Too Many Attempts</string>
-    <string name="pin_entry_try_again_minutes">Try again in %1$d minute%2$s</string>
-    <string name="pin_entry_try_again_seconds">Try again in %1$d second%2$s</string>
-    <string name="pin_entry_reset_recovery">Reset with Recovery Phrase</string>
-
-    <!-- PIN Reset Screen -->
-    <string name="pin_reset_title">Reset PIN</string>
-    <string name="pin_reset_warning_title">Reset Your PIN</string>
-    <string name="pin_reset_warning_message">Enter your 12-word recovery phrase to reset your PIN. Your existing PIN will be removed and you can set a new one.</string>
-    <string name="pin_reset_recovery_phrase">Recovery Phrase</string>
-    <string name="pin_reset_paste_clipboard">Paste from Clipboard</string>
-    <string name="pin_reset_button">Reset PIN</string>
-    <string name="payment_request_tab_unified">Unified</string>
-    <string name="payment_request_default_method_set">%1$s set as default payment method</string>
-    <string name="payment_request_default_description">Payment of %1$d sats</string>
-    <string name="payment_request_lightning_description">Numo POS payment of %1$d sats</string>
-
-    <!-- Extracted from layout hardcoded strings -->
-    <string name="basket_receipt_items_header_default">ITEMS</string>
-    <string name="action_add_new_mint">+ Add New Mint</string>
-    <string name="action_add_endpoint">Add Endpoint</string>
-    <string name="action_sync_all_endpoints">Sync All Endpoints</string>
-    <string name="dialog_confirm_message_default">Are you sure you want to proceed?</string>
-    <string name="dialog_ndef_payment_title">NFC Payment</string>
-    <string name="dialog_ndef_payment_status">Tap a device to your phone to receive payment</string>
-    <string name="dialog_sync_progress_message">Syncing…</string>
-    <string name="dialog_input_title_default">Enter Value</string>
-    <string name="dialog_input_description_default">Enter a value below</string>
-    <string name="hint_enter_value">Enter value</string>
-    <string name="dialog_input_helper_default">Min: 1,000 - Max: 1,000,000</string>
-    <string name="label_auto">AUTO</string>
-    <string name="about_website_url" translatable="false">numopay.org</string>
-    <string name="about_contact_email" translatable="false">numopay@proton.me</string>
-    <string name="desc_back">Back</string>
-    <string name="desc_app_icon">App Icon</string>
-    <string name="desc_item_image">Item image</string>
-    <string name="desc_decrease_quantity">Decrease quantity</string>
-    <string name="desc_increase_quantity">Increase quantity</string>
-    <string name="desc_remove_item">Remove item</string>
-    <string name="desc_select_lightning_mint">Select as Lightning mint</string>
-    <string name="desc_remove_preset">Remove preset</string>
-    <string name="label_percent_symbol" translatable="false">%</string>
-    <string name="auto_withdraw_percentage_min" translatable="false">50%</string>
-    <string name="auto_withdraw_percentage_max" translatable="false">98%</string>
-
-    <!-- Insights Screen -->
-    <string name="insights_open">Open insights</string>
-    <string name="insights_title">Sales</string>
-    <string name="insights_back">Back</string>
-    <string name="insights_view_options">View options</string>
-    <string name="insights_this_week">This week</string>
-    <string name="insights_last_7_weeks">Last 7 weeks</string>
-    <string name="insights_last_7_months">Last 7 months</string>
-    <string name="insights_date_range">Date range</string>
-    <string name="insights_range_days">Last 7 days</string>
-    <string name="insights_range_weeks">Last 7 weeks</string>
-    <string name="insights_range_months">Last 7 months</string>
-    <string name="insights_day_count_one">1 transaction</string>
-    <string name="insights_day_count_other">%1$d transactions</string>
-    <string name="insights_quick_charge">Quick charge</string>
-    <string name="insights_items_count_one">1 item</string>
-    <string name="insights_items_count_other">%1$d items</string>
-    <string name="insights_items_lead_with_more">%1$s · %2$s +%3$d more</string>
-    <string name="insights_item_xn">%1$d × %2$s</string>
-    <string name="insights_empty_headline">0 sales</string>
-    <string name="insights_empty_hint">Your sales will appear here.</string>
-    <string name="insights_empty_day">No sales on %1$s</string>
-    <string name="insights_show_me_in">Display in</string>
-    <string name="insights_currency_sats">₿</string>
-    <string name="insights_close">Close</string>
-    <string name="insights_day_label_mon">Mon</string>
-    <string name="insights_day_label_tue">Tue</string>
-    <string name="insights_day_label_wed">Wed</string>
-    <string name="insights_day_label_thu">Thu</string>
-    <string name="insights_day_label_fri">Fri</string>
-    <string name="insights_day_label_sat">Sat</string>
-    <string name="insights_day_label_sun">Sun</string>
-    <string name="developer_wallet_logs_title">Wallet Logs</string>
-    <string name="developer_wallet_logs_subtitle">View and export recent wallet activity logs</string>
-    <string name="developer_wallet_logs_section_title">Wallet activity logs</string>
-    <string name="developer_wallet_logs_empty">No wallet activity logs available.</string>
-    <string name="developer_wallet_logs_share_title">Share Wallet Activity Logs</string>
-    <string name="developer_wallet_logs_copied">Wallet activity logs copied to clipboard</string>
-    <string name="developer_wallet_logs_clear_dialog_title">Clear Wallet Logs</string>
-    <string name="developer_wallet_logs_clear_dialog_message">Clear all stored wallet logs? This cannot be undone.</string>
-
-    <!-- BTCPay Server Settings -->
-    <string name="btcpay_settings_title">BTCPay Server</string>
-    <string name="btcpay_settings_subtitle">BTCPay Server integration</string>
-    <string name="btcpay_enable_title">BTCPay Server</string>
-    <string name="btcpay_enable_subtitle">Enable BTCPay Server integration</string>
-    <string name="btcpay_section_connection">Connection</string>
-    <string name="btcpay_server_url_label">Server URL</string>
-    <string name="btcpay_server_url_hint">https://btcpay.example.com</string>
-    <string name="btcpay_api_key_label">API Key</string>
-    <string name="btcpay_api_key_hint">Enter your API key</string>
-    <string name="btcpay_store_id_label">Store ID</string>
-    <string name="btcpay_store_id_hint">Enter your store ID</string>
-    <string name="btcpay_section_test">Test</string>
-    <string name="btcpay_test_connection_title">Test Connection</string>
-    <string name="btcpay_test_connection_subtitle">Verify your server settings</string>
-    <string name="btcpay_test_connecting">Connecting...</string>
-    <string name="btcpay_test_success">Connected successfully</string>
-    <string name="btcpay_test_failed">Connection failed: %1$s</string>
-    <string name="btcpay_test_fill_all_fields">Please fill in all fields</string>
-    <string name="btcpay_test_unknown_error">Unknown error</string>
-    <string name="btcpay_section_pos">Point of Sale</string>
-    <string name="btcpay_pos_app_title">POS App</string>
-    <string name="btcpay_pos_app_subtitle_none">Local item directory</string>
-    <string name="btcpay_pos_select_title">Select POS App</string>
-    <string name="btcpay_pos_none_option">None — use local items</string>
-    <string name="btcpay_pos_no_apps">No Point of Sale apps found for this store</string>
-    <string name="btcpay_pos_load_error">Failed to load apps: %1$s</string>
-    <string name="btcpay_pos_items_error">Could not load BTCPay items</string>
-
-    <!-- Custom eCash Unit settings and messages -->
-    <string name="pos_error_pending_payment_different_unit">This pending payment is for a different unit and cannot be resumed.</string>
-    <string name="mints_unsupported_unit">Unsupported unit (%1$s)</string>
-    <string name="mints_select_base_unit">Select Base Unit</string>
-    <string name="mints_changed_base_unit_toast">Changed base unit to %1$s</string>
-    <string name="settings_fiat_conversion_disabled_custom_unit">Fiat currency conversion is disabled when using a custom base unit.</string>
-    <string name="mints_base_currency_unit_title">Currency unit</string>
-    <string name="mints_base_currency_unit_subtitle">If the mint supports other units, you can switch it here.</string>
-    <string name="item_entry_add_category">Add category</string>
-    <string name="mints_other_mints">Other mints</string>
-    <string name="mints_more_options">More options</string>
+    <!-- Deleting an account, or everything -->
+    <string name="delete_all_title">Delete everything</string>
+    <string name="delete_all_intro">What you hold and what you made are one account. They go together: there is no deleting the organiser and keeping the guest. This is everything on this phone.</string>
+    <string name="delete_account_intro">What this account holds and what it made go together. The other accounts on this phone are not touched.</string>
+    <string name="delete_all_hold">Hold to delete everything</string>
+    <string name="delete_all_account">account</string>
+    <string name="delete_all_gone">gone</string>
+    <string name="delete_all_no_nfts">No NFTs held</string>
+    <plurals name="delete_all_nfts">
+        <item quantity="one">%d NFT you hold is burned</item>
+        <item quantity="other">%d NFTs you hold are burned</item>
+    </plurals>
+    <string name="delete_all_renamed">Its name on the site becomes %s, and this phone forgets its key.</string>
+    <string name="delete_all_unknown">The site never heard of this account. It is only forgotten here.</string>
+    <string name="delete_all_collection">%1$d unsold NFTs burned · %2$d with their holders stay theirs · name becomes %3$s</string>
+    <string name="delete_all_door">Door · %s</string>
+    <string name="delete_all_door_help">Removed from this phone only. Nothing changes on the site.</string>
+    <string name="delete_all_till">%1$s · paid at %2$s</string>
+    <string name="delete_all_lost">%s sats would be lost</string>
+    <string name="delete_all_test">%s test sats · worth nothing</string>
+    <string name="delete_all_move">Move out first</string>
+    <string name="delete_all_abandon">Delete the %s sats too</string>
+    <string name="delete_all_unreached">Its site can\'t be reached (%s). It will stay as it is.</string>
+    <string name="delete_all_progress">Deleting… %1$d of %2$d done. Keep the app open.</string>
+    <string name="delete_all_collection_done">%1$d burned · renamed %2$s</string>
+    <string name="delete_all_collection_left">%1$d could not be burned. %2$s</string>
+    <string name="delete_all_account_kept">Kept: one of its collections is still here, and is this account\'s to try again.</string>
+    <string name="delete_all_account_done">Burned, renamed and forgotten.</string>
+    <string name="delete_all_stayed">Everything else is gone. What is marked in red is still here, with its key, and can be tried again.</string>
+    <string name="delete_all_leave">Leave them</string>
+    <string name="delete_all_again">Try again</string>
+    <string name="delete_all_done">Everything is gone. The app starts again as new.</string>
+    <string name="delete_account_done">%s is gone.</string>
+    <string name="delete_all_token_first">Ecash taken out earlier is still kept here and would be lost. Put it in a wallet first.</string>
+    <string name="delete_all_more">It holds more sats than when this page counted them. Nothing was deleted: look again.</string>
+    <string name="delete_all_token">Ecash taken out, not yet said to be safe</string>
+    <string name="delete_all_token_lost">This copy would be lost, and the sats with it.</string>
+    <string name="delete_all_abandon_token">Delete the ecash copy too</string>
+    <string name="delete_all_abandon_both">Delete the %s sats and the ecash copy too</string>
+    <string name="delete_all_token_of">%s · ecash taken out, not yet in a wallet</string>
+    <string name="delete_all_uncounted">What it holds could not be counted, so it was left as it is.</string>
+    <string name="delete_all_counting">Counting what would be lost…</string>
+    <string name="delete_all_settling">A payment from it is still settling. It stays until that is over.</string>
+    <string name="delete_all_orphans">Kept from before</string>
+    <string name="delete_all_orphans_tag">no account</string>
+    <string name="delete_all_keys_kept">Something on the site could not be checked, so the keys this phone holds were kept. Open Delete everything again when the site can be reached.</string>
+    <string name="delete_all_stays">The site keeps what it can\'t remove: each name, as [deleted], and the NFTs you sold or sent, which are their holders\' now.</string>
+    <string name="result_stands">%1$s · %2$s</string>
 </resources>
