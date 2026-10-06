@@ -1,153 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Base Theme (Light Mode) — Material 3, brand palette from numo_green seed -->
-    <style name="Theme.Numo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Material 3 color roles (tonal palette from numo_green seed) -->
-        <item name="colorPrimary">@color/m3_primary</item>
-        <item name="colorOnPrimary">@color/m3_on_primary</item>
-        <item name="colorPrimaryContainer">@color/m3_primary_container</item>
-        <item name="colorOnPrimaryContainer">@color/m3_on_primary_container</item>
-        <item name="colorSecondary">@color/m3_secondary</item>
-        <item name="colorOnSecondary">@color/m3_on_secondary</item>
-        <item name="colorSecondaryContainer">@color/m3_secondary_container</item>
-        <item name="colorOnSecondaryContainer">@color/m3_on_secondary_container</item>
-        <item name="colorTertiary">@color/m3_tertiary</item>
-        <item name="colorOnTertiary">@color/m3_on_tertiary</item>
-        <item name="colorTertiaryContainer">@color/m3_tertiary_container</item>
-        <item name="colorOnTertiaryContainer">@color/m3_on_tertiary_container</item>
-        <item name="colorError">@color/m3_error</item>
-        <item name="colorOnError">@color/m3_on_error</item>
-        <item name="colorErrorContainer">@color/m3_error_container</item>
-        <item name="colorOnErrorContainer">@color/m3_on_error_container</item>
-        <item name="colorSurfaceVariant">@color/m3_surface_variant</item>
-        <item name="colorOnSurfaceVariant">@color/m3_on_surface_variant</item>
-        <item name="colorOutline">@color/m3_outline</item>
-        <item name="colorOutlineVariant">@color/m3_outline_variant</item>
-        <item name="colorSurfaceContainerLowest">@color/m3_surface_container_lowest</item>
-        <item name="colorSurfaceContainerLow">@color/m3_surface_container_low</item>
-        <item name="colorSurfaceContainer">@color/m3_surface_container</item>
-        <item name="colorSurfaceContainerHigh">@color/m3_surface_container_high</item>
-        <item name="colorSurfaceContainerHighest">@color/m3_surface_container_highest</item>
-        <item name="colorSurfaceInverse">@color/m3_surface_inverse</item>
-        <item name="colorOnSurfaceInverse">@color/m3_on_surface_inverse</item>
-        <item name="colorPrimaryInverse">@color/m3_primary_inverse</item>
-        <!-- Status bar color - matches window background for seamless edge-to-edge -->
-        <item name="android:statusBarColor">@color/color_bg_white</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <!-- Navigation bar: solid white so it follows the light theme
-             everywhere except the POS screen (which overrides it to use
-             the per-theme background color). -->
-        <item name="android:navigationBarColor">@color/color_bg_white</item>
-        <item name="android:windowLightNavigationBar">true</item>
-        <!-- Text colors -->
-        <item name="android:textColor">@color/color_text_primary</item>
-        <!-- Background colors -->
-        <item name="android:windowBackground">@color/color_bg_white</item>
-        <item name="android:colorBackground">@color/color_bg_white</item>
-        <!-- Surface colors (kept on the app's neutral surfaces, not tinted) -->
-        <item name="colorSurface">@color/color_bg_white</item>
-        <item name="colorOnSurface">@color/color_text_primary</item>
-        <item name="colorOnBackground">@color/color_text_primary</item>
-        <!-- Normalize MaterialButton height across all variants -->
-        <item name="materialButtonStyle">@style/Widget.Numo.Button</item>
-        <!-- Icon tint -->
-        <item name="colorControlNormal">@color/color_text_secondary</item>
-        <!-- Switch/toggle active color (M3 primary role) -->
-        <item name="colorControlActivated">@color/m3_primary</item>
-        <!-- Popup menu styling -->
-        <item name="popupMenuStyle">@style/Widget.Numo.PopupMenu</item>
-        <item name="android:popupMenuStyle">@style/Widget.Numo.PopupMenu</item>
-        <!-- Snackbar styling -->
-        <item name="snackbarStyle">@style/Widget.Numo.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.Numo.Snackbar.Text</item>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- The look of nonfungible.cash: its two palettes, its three typefaces, pills, and a hard
+         offset shadow under whatever can be pressed. -->
+    <style name="Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">?attr/isLightTheme</item>
+        <item name="colorPrimary">@color/lime</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/ink</item>
+        <item name="colorSurface">@color/paper</item>
+        <item name="colorSurfaceContainerLow">@color/paper</item>
+        <item name="colorSurfaceContainerHigh">@color/paper</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/muted</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorOutline">@color/ink</item>
+        <item name="colorError">@color/bad</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+        <!-- Only the platform attribute: AppCompat's own would outrank every style's face. -->
+        <item name="android:fontFamily">@font/inter_400</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.App.Sheet</item>
     </style>
 
-    <!-- Popup Menu Style -->
-    <style name="Widget.Numo.PopupMenu" parent="Widget.Material3.PopupMenu">
-        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
-        <item name="android:popupElevation">0dp</item>
+    <style name="Theme.App.Sheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.App.Sheet</item>
     </style>
 
-    <!-- Splash Screen Theme for Android 12+ -->
-    <style name="Theme.Numo.Splash" parent="Theme.Numo">
-        <!-- Splash screen background: Navy -->
-        <item name="android:windowBackground">@color/numo_navy</item>
-        <item name="android:statusBarColor">@color/numo_navy</item>
-        <item name="android:navigationBarColor">@color/numo_navy</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
+    <style name="Widget.App.Sheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/bg</item>
+        <item name="shapeAppearance">@style/Shape.App.Sheet</item>
     </style>
 
-    <!-- Variant Styles (not duplicated in styles.xml) -->
-    
-    <style name="Text.DisplayAmount.Green">
-        <item name="android:textColor">@color/color_primary_green_light</item>
-    </style>
-
-    <!-- Legacy Toolbar Style -->
-    <style name="Widget.App.Toolbar.Light" parent="Widget.Material3.Toolbar">
-        <item name="android:background">@color/color_bg_white</item>
-        <item name="titleTextColor">@color/color_text_primary</item>
-        <item name="subtitleTextColor">@color/color_text_secondary</item>
-        <item name="colorControlNormal">@color/color_text_primary</item>
-    </style>
-    
-    <!-- Fullscreen Theme for Barcode Scanner -->
-    <style name="Theme.Numo.Fullscreen" parent="Theme.Numo">
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:statusBarColor">@color/color_bg_scanner</item>
-        <item name="android:navigationBarColor">@color/color_bg_scanner</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-
-    <!-- Google-style Centered Dialog Theme -->
-    <style name="Theme.Numo.Dialog" parent="Theme.Material3.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:backgroundDimAmount">0.5</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
-    </style>
-
-    <!-- Bottom Sheet Animation -->
-    <style name="Animation.Numo.BottomSheet" parent="Animation.AppCompat.Dialog">
-        <item name="android:windowEnterAnimation">@anim/slide_up</item>
-        <item name="android:windowExitAnimation">@anim/slide_down</item>
-    </style>
-    
-    <!-- Bottom Sheet Fragment Theme (DayNight-aware) -->
-    <style name="Theme.Numo.BottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:backgroundDimAmount">0.5</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightNavigationBar">true</item>
-        <item name="enableEdgeToEdge">true</item>
-        <item name="bottomSheetStyle">@style/Widget.Numo.BottomSheet</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
-    </style>
-
-    <!-- Bottom Sheet Widget Style -->
-    <style name="Widget.Numo.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
-        <item name="backgroundTint">@color/color_bg_white</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Numo.BottomSheet</item>
-        <item name="behavior_peekHeight">auto</item>
-        <item name="behavior_fitToContents">true</item>
-        <item name="android:elevation">16dp</item>
-    </style>
-    
-    <!-- Bottom Sheet Shape (Material 3 large component: 28dp top corners) -->
-    <style name="ShapeAppearance.Numo.BottomSheet" parent="ShapeAppearance.Material3.LargeComponent">
+    <style name="Shape.App.Sheet" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">28dp</item>
         <item name="cornerSizeTopRight">28dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
+
+    <!-- Type. Headings are the display face, heavy and tight; hashes and small labels are mono. -->
+    <style name="Text.App" parent="">
+        <item name="android:fontFamily">@font/inter_400</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Text.App.Strong">
+        <item name="android:fontFamily">@font/inter_700</item>
+    </style>
+
+    <style name="Text.App.Muted">
+        <item name="android:fontFamily">@font/inter_600</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Text.App.Mono">
+        <item name="android:fontFamily">@font/jetbrains_mono_400</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.App.Display">
+        <item name="android:fontFamily">@font/bricolage_grotesque_800</item>
+        <item name="android:letterSpacing">-0.035</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="Text.App.Display.Title">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- What a sheet says under its title: what will happen, in a sentence or two. -->
+    <style name="Text.App.Sheet" parent="Text.App.Muted">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <!-- A button is a pill with a border, sitting on its shadow until it is pressed. -->
+    <style name="Widget.App.Button" parent="">
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:fontFamily">@font/inter_700</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:stateListAnimator">@animator/press</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Widget.App.Button.Primary">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/button_primary_text</item>
+    </style>
+
+    <style name="Widget.App.Button.Ghost">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.App.IconButton" parent="">
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:stateListAnimator">@animator/press_small</item>
+    </style>
+
+    <style name="Widget.App.Field" parent="">
+        <item name="android:background">@drawable/bg_field</item>
+        <item name="android:fontFamily">@font/inter_600</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textColorHint">@color/muted</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="android:fontFamily">@font/inter_600</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+        <item name="trackDecorationTint">@color/ink</item>
+    </style>
+
+    <!-- One more, one fewer. -->
+    <style name="Widget.App.Step" parent="">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:fontFamily">@font/inter_700</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingEnd">3dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:stateListAnimator">@animator/press_small</item>
+    </style>
+
+    <style name="Widget.App.Badge" parent="">
+        <item name="android:background">@drawable/bg_badge</item>
+        <item name="android:fontFamily">@font/inter_700</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:paddingStart">9dp</item>
+        <item name="android:paddingEnd">9dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- One of a few ways to do something, each with a picture of itself. The chosen one is lime. -->
+    <style name="Widget.App.Choice" parent="">
+        <item name="android:background">@drawable/bg_choice</item>
+        <item name="android:fontFamily">@font/inter_700</item>
+        <item name="android:textColor">@color/choice_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">68dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 </resources>

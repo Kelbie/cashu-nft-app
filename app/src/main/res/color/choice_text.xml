@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- On the door's white panel, whatever the theme. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#8F8A7E" android:state_enabled="false" />
+    <item android:color="@color/black" />
+</selector>

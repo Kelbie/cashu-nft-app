@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- A button that cannot be pressed says so in its label too. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/quiet" android:state_enabled="false" />
+    <item android:color="@color/ink" />
+</selector>
