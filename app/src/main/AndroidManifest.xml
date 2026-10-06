@@ -1,633 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions for NFC client functionality -->
-    <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.HOST_CARD_EMULATION" />
-    <uses-feature android:name="android.hardware.nfc" android:required="true" />
-    <uses-feature android:name="android.hardware.nfc.hce" android:required="true" />
-
-    <!-- Permission for network access -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- Permission for vibration -->
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Permission for camera and storage -->
+    <!-- A guest reads a door's code with the camera. A phone without one can still host. -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <!-- A guest holds their phone to the door's. A phone without NFC shows and scans codes instead. -->
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.nfc.hce"
+        android:required="false" />
 
-    <!--
-      Keep legacy onBackPressed() handlers working while targeting API 36.
-      Remove this opt-out after migrating all back navigation to OnBackPressedDispatcher.
-    -->
     <application
-        android:enableOnBackInvokedCallback="false"
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:name=".App"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Numo"
-        android:localeConfig="@xml/locales_config"
-        android:name=".NumoApplication"
-        tools:targetApi="33">
-        <!-- For local dev only: add android:networkSecurityConfig="@xml/development_network_security_config" to <application> above -->
+        android:theme="@style/Theme.App">
 
-        <service
-            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
-            android:enabled="false"
-            android:exported="false">
-            <meta-data
-                android:name="autoStoreLocales"
-                android:value="true" />
-        </service>
-
-        <!-- Onboarding Activity - First Launch -->
+        <!-- Where the app opens. A link to a sale or to an NFT somebody gave opens here too. -->
         <activity
-            android:name="com.electricdreams.numo.feature.onboarding.OnboardingActivity"
+            android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Numo.Splash"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="nonfungible.cash"
+                    android:pathPrefix="/market/"
+                    android:scheme="https" />
+                <data
+                    android:host="nonfungible.cash"
+                    android:pathPrefix="/claim/"
+                    android:scheme="https" />
+            </intent-filter>
+            <!-- A phone held to a door while the app is closed opens here, with what the door asks. -->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
 
-        <!-- NFC Enable Activity -->
+        <!-- Turning the phone must not replace the code a holder is about to scan. -->
         <activity
-            android:name=".NfcEnableActivity"
-            android:exported="false"
-            android:label="@string/nfc_enable_title"
-            android:theme="@style/Theme.Numo"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+            android:name=".DoorActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
-        <!-- Modern POS Activity - Main App -->
+        <!-- Turning the phone must not put away a result, or a sale a guest is paying for from it. -->
         <activity
-            android:name="com.electricdreams.numo.ModernPOSActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Numo"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
-        </activity>
+            android:name=".ResultActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
-        <!-- Payment Request Activity (QR / Nostr / Lightning request screen) -->
-        <activity android:name="com.electricdreams.numo.PaymentRequestActivity"
-            android:exported="false"
-            android:label="Payment Request"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName="com.electricdreams.numo.ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.electricdreams.numo.ModernPOSActivity" />
-        </activity>
-
-        <!-- Payment Received Activity (success screen) -->
-        <activity android:name="com.electricdreams.numo.PaymentReceivedActivity"
-            android:exported="false"
-            android:label="Payment Received"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName="com.electricdreams.numo.ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.electricdreams.numo.ModernPOSActivity" />
-        </activity>
-
-        <!-- Payment Failure Activity -->
-        <activity android:name="com.electricdreams.numo.PaymentFailureActivity"
-            android:exported="false"
-            android:label="Payment Failed"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName="com.electricdreams.numo.ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.electricdreams.numo.ModernPOSActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.history.PaymentsHistoryActivity"
-            android:exported="false"
-            android:label="@string/history_toolbar_title"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ModernPOSActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.insights.InsightsActivity"
-            android:exported="false"
-            android:label="@string/insights_title"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.history.PaymentsHistoryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.history.PaymentsHistoryActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.history.TransactionDetailActivity"
-            android:exported="false"
-            android:label="@string/transaction_detail_toolbar_title"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.history.PaymentsHistoryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.history.PaymentsHistoryActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.SettingsActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize"
-            android:label="@string/settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ModernPOSActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.ThemeSettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_theme_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.DefaultPaymentMethodSettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_item_default_payment_method_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.CurrencySettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_currency_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.WebhookSettingsActivity"
-            android:exported="false"
-            android:label="@string/webhook_settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.MintsSettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_mints_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:windowSoftInputMode="adjustResize"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.MintDetailsActivity"
-            android:exported="false"
-            android:label="@string/mint_details_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.MintsSettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.MintsSettingsActivity" />
-        </activity>
-        <activity android:name="com.electricdreams.numo.feature.settings.SecuritySettingsActivity"
-            android:exported="false"
-            android:label="@string/settings_security_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.DeviceBackupRestoreActivity"
-            android:exported="false"
-            android:label="@string/restore_device_backup_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".feature.settings.RestoreWalletActivity"
+        <activity
+            android:name=".WelcomeActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name="com.electricdreams.numo.feature.settings.DeviceBackupSetupActivity"
-            android:exported="false"
-            android:label="@string/security_settings_device_backup_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".feature.settings.SecuritySettingsActivity"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".DeleteActivity" />
 
-        <activity android:name="com.electricdreams.numo.feature.settings.LanguageSettingsActivity"
-            android:exported="false"
-            android:label="@string/language_settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
+        <activity android:name=".ScanActivity" />
 
-        <!-- PIN Security Activities -->
-        <activity android:name="com.electricdreams.numo.feature.pin.PinEntryActivity"
-            android:exported="false"
-            android:label="Enter PIN"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".PricesActivity" android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name="com.electricdreams.numo.feature.pin.PinSetupActivity"
-            android:exported="false"
-            android:label="Set Up PIN"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SecuritySettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SecuritySettingsActivity" />
-        </activity>
+        <activity
+            android:name=".EventActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
-        <activity android:name="com.electricdreams.numo.feature.pin.PinResetActivity"
-            android:exported="false"
-            android:label="Reset PIN"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.pin.PinEntryActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.pin.PinEntryActivity" />
-        </activity>
+        <!-- One of a guest's NFTs. While it is up the phone can be held to a door. -->
+        <activity
+            android:name=".NftActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
-        <activity android:name="com.electricdreams.numo.feature.settings.AboutActivity"
-            android:exported="false"
-            android:label="About"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.btcmap.BtcMapExplainerActivity"
-            android:exported="false"
-            android:label="BTCMap"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
-
-        <activity android:name="com.electricdreams.numo.feature.settings.DeveloperSettingsActivity"
-            android:exported="false"
-            android:label="@string/developer_settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.ErrorLogsActivity"
-            android:exported="false"
-            android:label="@string/developer_error_logs_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.DeveloperSettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.DeveloperSettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.WalletLogsActivity"
-            android:exported="false"
-            android:label="@string/developer_wallet_logs_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.DeveloperSettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.DeveloperSettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.SeedPhraseActivity"
-            android:exported="false"
-            android:label="@string/seed_phrase_toolbar_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SecuritySettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SecuritySettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.RestoreWalletActivity"
-            android:exported="false"
-            android:label="@string/restore_progress_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SecuritySettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SecuritySettingsActivity" />
-        </activity>
-
-        <!-- Withdraw Activities -->
-        <activity android:name="com.electricdreams.numo.feature.settings.WithdrawLightningActivity"
-            android:exported="false"
-            android:label="Withdraw"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.MintsSettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.MintsSettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.WithdrawMeltQuoteActivity"
-            android:exported="false"
-            android:label="Confirm Withdrawal"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.WithdrawLightningActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.WithdrawLightningActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.WithdrawSuccessActivity"
-            android:exported="false"
-            android:label="Withdrawal Complete"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".ModernPOSActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ModernPOSActivity" />
-        </activity>
-
-        <!-- Item Management Activities -->
-        <activity android:name="com.electricdreams.numo.feature.items.ItemEntryActivity"
-            android:exported="false"
-            android:label="Add Item"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".feature.items.ItemListActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.items.ItemListActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.items.BarcodeScannerActivity"
-            android:exported="false"
-            android:label="@string/barcode_scanner_title"
-            android:theme="@style/Theme.Numo.Fullscreen"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".feature.items.ItemEntryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.items.ItemEntryActivity" />
-        </activity>
-
-        <!-- Reusable QR Code Scanner -->
-        <activity android:name="com.electricdreams.numo.feature.scanner.QRScannerActivity"
-            android:exported="false"
-            android:label="@string/qr_scanner_title"
-            android:theme="@style/Theme.Numo.Fullscreen"
-            android:screenOrientation="portrait" />
-
-        <activity android:name="com.electricdreams.numo.feature.items.ItemListActivity"
-            android:exported="false"
-            android:label="Items"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.tips.TipsSettingsActivity"
-            android:exported="false"
-            android:label="Tips"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.tips.TipSelectionActivity"
-            android:exported="false"
-            android:label="Add a Tip"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ModernPOSActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.items.ItemSelectionActivity"
-            android:exported="false"
-            android:label="Checkout"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".ModernPOSActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ModernPOSActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.items.CheckoutScannerActivity"
-            android:exported="false"
-            android:label="@string/checkout_scanner_title"
-            android:theme="@style/Theme.Numo.Fullscreen"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".feature.items.ItemSelectionActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.items.ItemSelectionActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.baskets.SavedBasketsActivity"
-            android:exported="false"
-            android:label="@string/saved_baskets_title"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.items.ItemSelectionActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.items.ItemSelectionActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.baskets.BasketArchiveActivity"
-            android:exported="false"
-            android:label="@string/basket_archive_title"
-            android:theme="@style/Theme.Numo"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.baskets.SavedBasketsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.baskets.SavedBasketsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.baskets.BasketNamesSettingsActivity"
-            android:exported="false"
-            android:label="@string/basket_names_settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.settings.BtcPaySettingsActivity"
-            android:exported="false"
-            android:label="@string/btcpay_settings_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <activity android:name="com.electricdreams.numo.feature.autowithdraw.AutoWithdrawSettingsActivity"
-            android:exported="false"
-            android:label="@string/auto_withdraw_title"
-            android:theme="@style/Theme.Numo.Settings"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:parentActivityName=".feature.settings.SettingsActivity"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".feature.settings.SettingsActivity" />
-        </activity>
-
-        <!-- HCE Service for NDEF tag emulation -->
-        <service android:name=".ndef.NdefHostCardEmulationService"
+        <!-- The door, as something a phone can be held to: it answers only while a door is on screen. -->
+        <service
+            android:name=".tap.TagService"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
                 <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data
                 android:name="android.nfc.cardemulation.host_apdu_service"
-                android:resource="@xml/aid_list" />
+                android:resource="@xml/door_tag" />
         </service>
 
-        <!-- FileProvider for camera image capture -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.electricdreams.numo.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
+        <activity android:name=".TicketsActivity" />
+
+        <!-- A collection's page can be shared to the app, or opened with it. -->
+        <activity
+            android:name=".CollectionActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="nonfungible.cash"
+                    android:pathPrefix="/p/"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MakeActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

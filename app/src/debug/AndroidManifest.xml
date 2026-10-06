@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Debug builds may talk to a local test site and a local ws:// relay. -->
+    <application android:usesCleartextTraffic="true" />
+
+</manifest>
