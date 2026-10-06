@@ -1,5 +1,7 @@
 # nonfungible.cash for Android
 
+![Five screens of the app: an account's NFTs, one ticket, its collections, a door showing its code, and its wallet](docs/screenshots/app.png)
+
 One app for both sides of a door at an event whose tickets are image NFTs. It
 asks only for a name the first time it opens, and there are no sides to choose
 between.
