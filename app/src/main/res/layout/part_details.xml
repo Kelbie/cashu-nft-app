@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Everything the phone knows about one NFT, as a table: what it says of itself first. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/Text.App"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/inter_600"
+        android:textSize="14sp"
+        android:visibility="gone"
+        tools:text="One admission to bitcoin++ Seoul."
+        tools:visibility="visible" />
+
+    <!-- What the NFT says of itself, two to a row, in its picture's colours. -->
+    <LinearLayout
+        android:id="@+id/facts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <!-- What the phone knows besides: a label, and what it is, with a line between each. -->
+    <LinearLayout
+        android:id="@+id/rows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical" />
+
+</LinearLayout>

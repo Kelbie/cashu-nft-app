@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- One thing an NFT says about itself: what it is a fact of, small, and the fact, large. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:minHeight="76dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="14dp"
+    android:paddingTop="11dp"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/Text.App.Mono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textSize="11sp"
+        tools:text="Admission" />
+
+    <TextView
+        android:id="@+id/value"
+        style="@style/Text.App.Display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="21sp"
+        tools:text="General admission" />
+
+</LinearLayout>
