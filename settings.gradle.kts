@@ -17,5 +17,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Numo"
+rootProject.name = "nonfungible.cash"
 include(":app")
