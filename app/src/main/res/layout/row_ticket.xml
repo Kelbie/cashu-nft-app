@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_row"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_media"
+        android:importantForAccessibility="no"
+        android:padding="2dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Text.App.Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="17sp"
+            tools:text="013-general" />
+
+        <TextView
+            android:id="@+id/detail"
+            style="@style/Text.App.Mono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="16:41 · Door" />
+
+    </LinearLayout>
+
+    <!-- Still the collection's: on the market, or to send or sell. -->
+    <TextView
+        android:id="@+id/held"
+        style="@style/Widget.App.Badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/tickets_yours"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/state"
+        style="@style/Widget.App.Badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        tools:text="@string/tickets_admitted" />
+
+</LinearLayout>

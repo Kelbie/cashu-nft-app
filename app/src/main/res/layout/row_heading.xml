@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What a run of rows are: "Tickets", "Other NFTs". -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Text.App.Mono"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="14dp"
+    android:paddingBottom="8dp"
+    android:textAllCaps="true"
+    android:textSize="12sp" />

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Something that happened to the wallet's money, or something of the account's with a sum to it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/rule"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/faint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="52dp"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/what"
+                style="@style/Text.App.Strong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="Received · Lightning" />
+
+            <TextView
+                android:id="@+id/detail"
+                style="@style/Text.App.Mono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="Today 12:04 · Minibits" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/amount"
+            style="@style/Text.App.Strong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:maxLines="1"
+            tools:text="+5,000" />
+
+        <TextView
+            android:id="@+id/act"
+            style="@style/Widget.App.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:minHeight="42dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="18dp"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="Move to wallet" />
+
+    </LinearLayout>
+
+</LinearLayout>
