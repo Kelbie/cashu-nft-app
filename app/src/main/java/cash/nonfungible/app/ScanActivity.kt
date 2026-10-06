@@ -24,7 +24,7 @@ import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 
-/** Reads one QR code with the camera and hands its text back: Numo's scanner, pared down. */
+/** Reads one QR code with the camera and hands its text back. */
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding

@@ -2,7 +2,7 @@
 
 Run it in a cashu-nft checkout, with that project's Python environment:
 
-    python ../numo/app/src/test/make-vectors.py ../numo/app/src/test/resources/door-vectors.json
+    python ../cashu-nft-app/app/src/test/make-vectors.py ../cashu-nft-app/app/src/test/resources/door-vectors.json
 
 It keeps the file's plain picture and its request's fixed parts, and makes everything that
 depends on the protocol or on the metadata format afresh: the ticket's picture, which says what

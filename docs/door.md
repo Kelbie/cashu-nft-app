@@ -211,7 +211,7 @@ whether the NFT says it is a ticket, and draws nothing from a document's
 - `studio/` and `app/src/main/assets/studio` make collections and sell from
   them: [making.md](making.md), [selling.md](selling.md).
 - `guest/` is what an account holds and its wallet: [guest.md](guest.md).
-- `nostr/` is Numo's transport.
+- `nostr/` is the transport: gift-wrapped messages over relays.
 - The screens sit at the package root and hold no rules of their own:
   [app.md](app.md) is the map of them. `DoorActivity` is the door, and
   `TicketsActivity` the collection's page it is opened from.

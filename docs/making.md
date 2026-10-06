@@ -55,7 +55,7 @@ Drawing and minting run in two hidden web pages that cannot reach each other.
   comes from a browser.
 
 `studio/Press.kt` is both pages. `app/src/main/assets/studio` is built, not
-written: `node scripts/tickets/studio.mjs ../numo/app/src/main/assets/studio`
+written: `node scripts/tickets/studio.mjs ../cashu-nft-app/app/src/main/assets/studio`
 in `cashu-nft` makes it from `scripts/tickets/studio` and
 `scripts/tickets/templates`. Build it again whenever the site's wallet code or
 a template changes, and never edit it here.

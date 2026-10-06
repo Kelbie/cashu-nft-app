@@ -137,7 +137,7 @@ knows it was let in. Buying a ticket second-hand on the day carries that risk.
   both run in the app.
 - **No tap to pay.** A phone held to the door shows a ticket; a sale at the
   door is still a code the guest scans.
-- **Numo's own wallet was not brought back.** The collection's money is in the
+- **The point of sale's own wallet was not brought back.** The collection's money is in the
   site's ecash wallet, driven by the site's code, because that is the wallet
   the site's market pays into.
 - **Real money is untested.** Everything here was run with Testnut's test sats

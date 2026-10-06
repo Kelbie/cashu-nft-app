@@ -68,7 +68,7 @@ dependencies {
     implementation("com.upokecenter:cbor:4.5.2")
     implementation("com.google.zxing:core:3.5.3")
 
-    // Reading a door's code with the camera, for a guest: CameraX and ML Kit, as Numo had them
+    // Reading a door's code with the camera, for a guest: CameraX and ML Kit
     implementation("com.google.mlkit:barcode-scanning:17.3.0")
     implementation("androidx.camera:camera-camera2:1.4.2")
     implementation("androidx.camera:camera-lifecycle:1.4.2")

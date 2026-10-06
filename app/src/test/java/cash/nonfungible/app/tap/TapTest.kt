@@ -113,7 +113,7 @@ class TapTest {
         assertEquals(listOf("first", "second"), heard)
     }
 
-    /** A wallet of another make writes in small pieces, as Numo's customers' wallets do. */
+    /** A wallet of another make writes in small pieces, as some wallets do. */
     @Test
     fun aWalletThatWritesInSmallPiecesIsHeard() {
         open()

@@ -14,9 +14,9 @@ At the door nothing changes hands. The guest's phone proves it holds a ticket
 of the collection, and the door keeps a record of the ones it has let in. The
 guest needs no network to do it: only the door does.
 
-It began as [Numo](https://github.com/cashubtc/numo), the Cashu point of sale,
-with the payment terminal taken out. What remains of Numo is its nostr
-transport, its scanner, and the way a phone held to it reads a request.
+It began as a Cashu point-of-sale app with the payment terminal taken out.
+What remains of that is its nostr transport, its scanner, and the way a phone
+held to it reads a request.
 [What the ticketing rests on](docs/security.md) is the audit of the design.
 
 ## At the door
