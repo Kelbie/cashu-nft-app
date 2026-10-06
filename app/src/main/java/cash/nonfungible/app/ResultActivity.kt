@@ -63,8 +63,8 @@ class ResultActivity : AppCompatActivity() {
             val bars = insets.getInsets(
                 WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
             )
-            binding.band.updatePadding(top = bars.top + dp(14))
-            binding.bar.updatePadding(top = bars.top + dp(12))
+            inset = bars.top
+            pad()
             binding.body.updatePadding(bottom = bars.bottom + dp(16))
             insets
         }
@@ -182,25 +182,29 @@ class ResultActivity : AppCompatActivity() {
             yours -> getString(R.string.result_yours)
             else -> getString(R.string.result_out)
         }
-        // Nothing has been decided about it: there is no answer to put over it. How it stands is
-        // said under its name, as on any NFT's page, and what can be done is at the foot.
-        binding.band.isVisible = false
-        binding.rule.isVisible = false
+        // The way back is always there. One that has come in says so in the door's own green,
+        // across the top, as it did at the door. One that has not has no answer to put over it:
+        // how it stands is said under its name, and what can be done is at the foot.
         binding.bar.isVisible = true
-        val stands = if (at == null) {
+        binding.band.isVisible = at != null
+        binding.rule.isVisible = at != null
+        if (at == null) {
+            binding.bar.background = null
             other(getString(R.string.result_admit)) {
                 record.record(h, getString(R.string.result_by_hand, Config(this).door))
                 view(h, fresh = true)
             }
-            getString(R.string.result_waiting)
+            say(nft.lead, getString(R.string.result_stands, getString(R.string.result_waiting), whose))
         } else {
+            band(Tone.GOOD, getString(R.string.tickets_admitted), getString(R.string.result_at, at.door, time(at.at * 1000)))
+            binding.bar.setBackgroundColor(getColor(Tone.GOOD.color))
             other(resources.getQuantityString(R.plurals.result_undo, 1, 1)) {
                 record.forget(h)
                 view(h, fresh = false)
             }
-            getString(R.string.result_stands, getString(R.string.tickets_admitted), getString(R.string.result_at, at.door, time(at.at * 1000)))
+            say(nft.lead, whose)
         }
-        say(nft.lead, getString(R.string.result_stands, stands, whose))
+        pad()
         val verdict = at?.let { Verdict.Admitted }
         show(listOf(Shown(h, verdict)), holder = null, celebrate = fresh)
         about(h, verdict, null)
@@ -238,6 +242,19 @@ class ResultActivity : AppCompatActivity() {
     /** The one NFT whose details are under its picture, and the colours the page took from it. */
     private var described: Triple<String, Verdict?, Holder?>? = null
     private var worn: Look? = null
+
+    /** How much of the top the system's bars take. */
+    private var inset = 0
+
+    /**
+     * Room at the top for the system's bars: under the way back when there is one, and
+     * otherwise in the band itself, which then runs up under them.
+     */
+    private fun pad() {
+        val barred = binding.bar.isVisible
+        binding.bar.updatePadding(top = inset + dp(12), bottom = if (barred && binding.band.isVisible) dp(4) else 0)
+        binding.band.updatePadding(top = if (barred) dp(2) else inset + dp(14))
+    }
 
     private fun band(tone: Tone, word: String, at: String) {
         val ink = getColor(tone.ink)
