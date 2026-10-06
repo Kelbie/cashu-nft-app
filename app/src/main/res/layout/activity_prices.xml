@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                style="@style/Widget.App.IconButton"
+                android:contentDescription="@string/common_back"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                style="@style/Text.App.Display.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="@string/prices_title" />
+
+        </LinearLayout>
+
+        <cash.nonfungible.app.Halftone
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/selling"
+                        style="@style/Widget.App.Switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="On sale on nonfungible.cash" />
+
+                    <!-- What prices are written in: sats, or the money the event thinks in. -->
+                    <LinearLayout
+                        android:id="@+id/units"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal" />
+
+                    <!-- What it costs today: one line for each kind. Nothing means not for sale. -->
+                    <TextView
+                        style="@style/Text.App.Display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/prices_now" />
+
+                    <LinearLayout
+                        android:id="@+id/now"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical" />
+
+                    <!-- What it will cost from a day to come: as many as the event has stages. -->
+                    <LinearLayout
+                        android:id="@+id/later"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/add"
+                        style="@style/Widget.App.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/prices_add" />
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/by_itself"
+                        style="@style/Widget.App.Switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/prices_by_itself" />
+
+                    <TextView
+                        style="@style/Text.App.Muted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prices_by_itself_help" />
+
+                    <TextView
+                        style="@style/Text.App.Display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/prices_paid_in" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/mints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+
+                    </HorizontalScrollView>
+
+                    <!-- NFTs of this collection that their holders are selling on. -->
+                    <TextView
+                        android:id="@+id/resold_title"
+                        style="@style/Text.App.Display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/prices_resold"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/resold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/cash_out"
+                        style="@style/Widget.App.Button.Ghost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:visibility="gone"
+                        tools:text="Take out 21,000 sats"
+                        tools:visibility="visible" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </cash.nonfungible.app.Halftone>
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/Text.App.Muted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:minLines="2"
+            tools:text="3 on sale · 2 sold for 42,000 sats" />
+
+        <TextView
+            android:id="@+id/save"
+            style="@style/Widget.App.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/settings_save" />
+
+    </LinearLayout>
+
+</FrameLayout>
