@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- One NFT: its picture on a card that stands on a hard shadow, as a card on the site does. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tile">
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_tile_picture"
+        android:contentDescription="@string/result_picture"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/badge"
+        style="@style/Widget.App.Badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
+        tools:background="@drawable/bg_badge_good"
+        tools:text="Admitted"
+        tools:visibility="visible" />
+
+</FrameLayout>
